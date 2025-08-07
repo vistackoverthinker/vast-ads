@@ -1,0 +1,54 @@
+<VAST version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://iabtechlab.com/wp-content/uploads/2016/04/vast3_draft.xsd">
+
+  <!-- Pre-roll Ad -->
+  <Ad id="pre-roll-1" sequence="1">
+    <InLine>
+      <AdSystem version="1.0">SampleAdSystem</AdSystem>
+      <AdTitle>Pre-roll Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
+      <Creatives>
+        <Creative sequence="1" id="1">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/start/pre]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/complete/pre]]></Tracking>
+            </TrackingEvents>
+            <MediaFiles>
+              <MediaFile delivery="streaming" type="application/vnd.apple.mpegurl" width="640" height="360">
+                <![CDATA[https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Mid-roll Ad -->
+  <Ad id="mid-roll-1" sequence="2">
+    <InLine>
+      <AdSystem version="1.0">SampleAdSystem</AdSystem>
+      <AdTitle>Mid-roll Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
+      <Creatives>
+        <Creative sequence="1" id="2">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/start/mid]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/complete/mid]]></Tracking>
+            </TrackingEvents>
+            <MediaFiles>
+              <MediaFile delivery="streaming" type="application/vnd.apple.mpegurl" width="640" height="360">
+                <![CDATA[https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+</VAST>

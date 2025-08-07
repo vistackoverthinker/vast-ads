@@ -1,26 +1,16 @@
 <VAST version="3.0">
   <!-- Pre-roll Ad -->
-  <Ad id="pre-roll-1" sequence="1">
+  <Ad id="pre-roll" sequence="1">
     <InLine>
       <AdSystem>Example</AdSystem>
-      <AdTitle>Pre-Roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
+      <AdTitle>Pre-roll</AdTitle>
       <Creatives>
         <Creative sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/start/pre]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://example.com/firstQuartile/pre]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://example.com/midpoint/pre]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://example.com/thirdQuartile/pre]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/complete/pre]]></Tracking>
-              <Tracking event="skip"><![CDATA[https://example.com/skip/pre]]></Tracking>
-              <Tracking event="impression"><![CDATA[https://example.com/impression/pre]]></Tracking>
-            </TrackingEvents>
+            <Duration>00:00:05</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -30,23 +20,17 @@
   </Ad>
 
   <!-- Mid-roll Ad -->
-  <Ad id="mid-roll-1" sequence="2">
+  <Ad id="mid-roll" sequence="2">
     <InLine>
       <AdSystem>Example</AdSystem>
-      <AdTitle>Mid-Roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
+      <AdTitle>Mid-roll</AdTitle>
       <Creatives>
         <Creative sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/start/mid]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/complete/mid]]></Tracking>
-              <Tracking event="impression"><![CDATA[https://example.com/impression/mid]]></Tracking>
-            </TrackingEvents>
+            <Duration>00:00:05</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -56,23 +40,17 @@
   </Ad>
 
   <!-- Post-roll Ad -->
-  <Ad id="post-roll-1" sequence="3">
+  <Ad id="post-roll" sequence="3">
     <InLine>
       <AdSystem>Example</AdSystem>
-      <AdTitle>Post-Roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/post]]></Impression>
+      <AdTitle>Post-roll</AdTitle>
       <Creatives>
         <Creative sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/start/post]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/complete/post]]></Tracking>
-              <Tracking event="impression"><![CDATA[https://example.com/impression/post]]></Tracking>
-            </TrackingEvents>
+            <Duration>00:00:05</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -80,53 +58,4 @@
       </Creatives>
     </InLine>
   </Ad>
-
-  <!-- Pause Ad (NonLinear Companion) -->
-  <Ad id="pauseAd" sequence="4">
-    <InLine>
-      <AdSystem>Example</AdSystem>
-      <AdTitle>Pause Banner Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative>
-          <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://via.placeholder.com/300x250?text=Pause+Ad]]>
-              </StaticResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/pause-ad-click]]></CompanionClickThrough>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Banner Ad (Companion) -->
-  <Ad id="bannerAd" sequence="5">
-    <InLine>
-      <AdSystem>Example</AdSystem>
-      <AdTitle>Banner Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/banner]]></Impression>
-      <Creatives>
-        <Creative>
-          <CompanionAds>
-            <Companion width="728" height="90">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/728x90?text=Banner+Ad]]>
-              </StaticResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/banner]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/banner-ad-click]]></CompanionClickThrough>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
 </VAST>
-

@@ -1,0 +1,41 @@
+<VAST version="4.2">
+  <Ad id="1">
+    <InLine>
+      <AdSystem version="1.0">CustomAdServer</AdSystem>
+      <AdTitle>Pre-Roll Video Ad</AdTitle>
+      <Creatives>
+        <!-- Pre-roll Video Ad -->
+        <Creative>
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                https://example.com/ads/pre-roll-video.mp4
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <Ad id="2">
+    <InLine>
+      <AdSystem version="1.0">CustomAdServer</AdSystem>
+      <AdTitle>Pause Video Ad</AdTitle>
+      <Creatives>
+        <!-- Pause Video Ad -->
+        <Creative>
+          <Linear>
+            <Duration>00:00:05</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                https://example.com/ads/pause-ad-video.mp4
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>

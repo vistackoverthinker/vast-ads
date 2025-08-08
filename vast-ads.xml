@@ -1,8 +1,10 @@
-<VAST version="3.0">
-  <!-- Pre-roll Ad -->
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.2">
+
+  <!-- ✅ Pre-roll Ad -->
   <Ad id="pre-roll-1" sequence="1">
     <InLine>
-      <AdSystem>Example</AdSystem>
+      <AdSystem>Test Server</AdSystem>
       <AdTitle>Pre-roll Ad</AdTitle>
       <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
       <Creatives>
@@ -15,32 +17,19 @@
             </TrackingEvents>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
-        </Creative>
-        <Creative>
-          <CompanionAds>
-            <Companion width="300" height="60">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/300x60?text=Pre-roll+Companion]]>
-              </StaticResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/companion/pre]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/companion-click/pre]]></CompanionClickThrough>
-            </Companion>
-          </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
-  <!-- Mid-roll Ad -->
+  <!-- ✅ Mid-roll Ad -->
   <Ad id="mid-roll-1" sequence="2">
     <InLine>
-      <AdSystem>Example</AdSystem>
+      <AdSystem>Test Server</AdSystem>
       <AdTitle>Mid-roll Ad</AdTitle>
       <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
       <Creatives>
@@ -53,7 +42,7 @@
             </TrackingEvents>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -62,23 +51,23 @@
     </InLine>
   </Ad>
 
-  <!-- Post-roll Ad -->
-  <Ad id="post-roll-1" sequence="3">
+  <!-- ✅ Pause Ad (Linear Video) -->
+  <Ad id="pause-ad-1">
     <InLine>
-      <AdSystem>Example</AdSystem>
-      <AdTitle>Post-roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/post]]></Impression>
+      <AdSystem>Test Server</AdSystem>
+      <AdTitle>Pause Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
       <Creatives>
         <Creative sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
+            <Duration>00:00:06</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/tracking/start/post]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/post]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/pause]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/pause]]></Tracking>
             </TrackingEvents>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -87,27 +76,4 @@
     </InLine>
   </Ad>
 
-  <!-- Pause Ad (Non-linear Companion) -->
-  <Ad id="pause-ad-1" sequence="4">
-    <InLine>
-      <AdSystem>Example</AdSystem>
-      <AdTitle>Pause Ad Banner</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative>
-          <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/300x250?text=Pause+Ad]]>
-              </StaticResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/click/pause]]></CompanionClickThrough>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
 </VAST>

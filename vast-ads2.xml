@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:noNamespaceSchemaLocation="vast.xsd">
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
     <Ad id="preroll-1">
         <InLine>
-            <AdSystem>CustomAdServer</AdSystem>
-            <AdTitle>Pre-roll Video Ad</AdTitle>
-            <Impression><![CDATA[https://example.com/track/impression/preroll]]></Impression>
+            <AdSystem version="4.2">Custom Ad Server</AdSystem>
+            <AdTitle>Pre-Roll Video Ad</AdTitle>
+            <Description>15-second pre-roll ad</Description>
+            <Impression><![CDATA[https://example.com/track/impression-preroll]]></Impression>
+
             <Creatives>
-                <Creative id="1" sequence="1">
+                <Creative sequence="1">
                     <Linear>
-                        <Duration>00:00:10</Duration>
+                        <Duration>00:00:15</Duration>
                         <MediaFiles>
                             <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://example.com/media/preroll.mp4]]>
+                                <![CDATA[https://storage.googleapis.com/interactive-media-ads/media/elephants-dream.mp4]]>
                             </MediaFile>
                         </MediaFiles>
                         <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://example.com/track/start/preroll]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://example.com/track/complete/preroll]]></Tracking>
+                            <Tracking event="start"><![CDATA[https://example.com/track/start-preroll]]></Tracking>
+                            <Tracking event="firstQuartile"><![CDATA[https://example.com/track/firstQuartile-preroll]]></Tracking>
+                            <Tracking event="midpoint"><![CDATA[https://example.com/track/midpoint-preroll]]></Tracking>
+                            <Tracking event="thirdQuartile"><![CDATA[https://example.com/track/thirdQuartile-preroll]]></Tracking>
+                            <Tracking event="complete"><![CDATA[https://example.com/track/complete-preroll]]></Tracking>
                         </TrackingEvents>
                     </Linear>
                 </Creative>
@@ -27,13 +31,49 @@
 
     <Ad id="midroll-1">
         <InLine>
-            <AdSystem>CustomAdServer</AdSystem>
-            <AdTitle>Mid-roll Video Ad</AdTitle>
-            <Impression><![CDATA[https://example.com/track/impression/midroll]]></Impression>
+            <AdSystem version="4.2">Custom Ad Server</AdSystem>
+            <AdTitle>Mid-Roll Video Ad</AdTitle>
+            <Description>15-second mid-roll ad at 50% playback</Description>
+            <Impression><![CDATA[https://example.com/track/impression-midroll]]></Impression>
+
             <Creatives>
-                <Creative id="2" sequence="1">
+                <Creative sequence="1">
                     <Linear>
                         <Duration>00:00:15</Duration>
                         <MediaFiles>
                             <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                               
+                                <![CDATA[https://storage.googleapis.com/interactive-media-ads/media/bbb.mp4]]>
+                            </MediaFile>
+                        </MediaFiles>
+                        <TrackingEvents>
+                            <Tracking event="start"><![CDATA[https://example.com/track/start-midroll]]></Tracking>
+                            <Tracking event="complete"><![CDATA[https://example.com/track/complete-midroll]]></Tracking>
+                        </TrackingEvents>
+                    </Linear>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+
+    <Ad id="pause-ad">
+        <InLine>
+            <AdSystem version="4.2">Custom Ad Server</AdSystem>
+            <AdTitle>Pause Ad</AdTitle>
+            <Description>Static image shown on pause</Description>
+            <Impression><![CDATA[https://example.com/track/impression-pause]]></Impression>
+
+            <Creatives>
+                <Creative sequence="1">
+                    <NonLinearAds>
+                        <NonLinear width="300" height="250">
+                            <StaticResource creativeType="image/jpeg">
+                                <![CDATA[https://via.placeholder.com/300x250.jpg?text=Paused+Ad]]>
+                            </StaticResource>
+                            <NonLinearClickThrough><![CDATA[https://example.com/clickthrough-pause]]></NonLinearClickThrough>
+                        </NonLinear>
+                    </NonLinearAds>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>

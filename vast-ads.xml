@@ -1,86 +1,198 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.2">
-
-  <!-- ✅ Pre-roll Ad -->
-  <Ad id="pre-roll-1" sequence="1">
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Pre-roll Ad with Companion -->
+  <Ad id="pre-roll-1">
     <InLine>
-      <AdSystem>Test Server</AdSystem>
-      <AdTitle>Pre-roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
+      <AdSystem>VAST Player Demo</AdSystem>
+      <AdTitle>Pre-roll Video Ad</AdTitle>
+      <Impression>https://example.com/tracking/pre-roll/impression</Impression>
       <Creatives>
-        <Creative sequence="1">
+        <Creative id="pre-roll-video" sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
+            <Duration>00:00:15</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/tracking/start/pre]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/pre]]></Tracking>
+              <Tracking event="start">https://example.com/tracking/pre-roll/start</Tracking>
+              <Tracking event="firstQuartile">https://example.com/tracking/pre-roll/firstQuartile</Tracking>
+              <Tracking event="midpoint">https://example.com/tracking/pre-roll/midpoint</Tracking>
+              <Tracking event="thirdQuartile">https://example.com/tracking/pre-roll/thirdQuartile</Tracking>
+              <Tracking event="complete">https://example.com/tracking/pre-roll/complete</Tracking>
+              <Tracking event="skip">https://example.com/tracking/pre-roll/skip</Tracking>
             </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough>https://example.com/click/pre-roll</ClickThrough>
+            </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
+                <![CDATA[https://example.com/videos/pre-roll.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
+        </Creative>
+        
+        <!-- Companion Ad for Pre-roll -->
+        <Creative id="pre-roll-companion">
+          <CompanionAds>
+            <Companion width="300" height="250">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://example.com/companions/pre-roll.png]]>
+              </StaticResource>
+              <CompanionClickThrough>
+                <![CDATA[https://example.com/click/pre-roll-companion]]>
+              </CompanionClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/tracking/pre-roll/companion/view]]>
+                </Tracking>
+                <Tracking event="click">
+                  <![CDATA[https://example.com/tracking/pre-roll/companion/click]]>
+                </Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
-  <!-- ✅ Mid-roll Ad -->
-  <Ad id="mid-roll-1" sequence="2">
+  <!-- Mid-roll Ad with Overlay -->
+  <Ad id="mid-roll-1">
     <InLine>
-      <AdSystem>Test Server</AdSystem>
-      <AdTitle>Mid-roll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
+      <AdSystem>VAST Player Demo</AdSystem>
+      <AdTitle>Mid-roll Video Ad</AdTitle>
+      <Impression>https://example.com/tracking/mid-roll/impression</Impression>
       <Creatives>
-        <Creative sequence="1">
+        <Creative id="mid-roll-video" sequence="2">
           <Linear>
-            <Duration>00:00:10</Duration>
+            <Duration>00:00:20</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/tracking/start/mid]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/mid]]></Tracking>
+              <Tracking event="start">https://example.com/tracking/mid-roll/start</Tracking>
+              <Tracking event="firstQuartile">https://example.com/tracking/mid-roll/firstQuartile</Tracking>
+              <Tracking event="midpoint">https://example.com/tracking/mid-roll/midpoint</Tracking>
+              <Tracking event="thirdQuartile">https://example.com/tracking/mid-roll/thirdQuartile</Tracking>
+              <Tracking event="complete">https://example.com/tracking/mid-roll/complete</Tracking>
+              <Tracking event="skip">https://example.com/tracking/mid-roll/skip</Tracking>
             </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough>https://example.com/click/mid-roll</ClickThrough>
+            </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
+                <![CDATA[https://example.com/videos/mid-roll.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
+        </Creative>
+        
+        <!-- Overlay Ad for Mid-roll -->
+        <Creative id="mid-roll-overlay">
+          <NonLinearAds>
+            <NonLinear width="300" height="100" minSuggestedDuration="00:00:15">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://example.com/overlays/mid-roll-overlay.png]]>
+              </StaticResource>
+              <NonLinearClickThrough>
+                <![CDATA[https://example.com/click/mid-roll-overlay]]>
+              </NonLinearClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/tracking/mid-roll/overlay/view]]>
+                </Tracking>
+                <Tracking event="click">
+                  <![CDATA[https://example.com/tracking/mid-roll/overlay/click]]>
+                </Tracking>
+                <Tracking event="close">
+                  <![CDATA[https://example.com/tracking/mid-roll/overlay/close]]>
+                </Tracking>
+              </TrackingEvents>
+            </NonLinear>
+          </NonLinearAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
-  <!-- ✅ Pause Ad (Linear Video) -->
-<Ad id="pause-ad-1">
-  <InLine>
-    <AdSystem>Test Server</AdSystem>
-    <AdTitle>Pause Linear Video Ad</AdTitle>
-    <Impression>
-      <![CDATA[ https://example.com/impression/pause ]]>
-    </Impression>
-    <Creatives>
-      <Creative sequence="1">
-        <Linear>
-          <Duration>00:00:05</Duration>
-          <TrackingEvents>
-            <Tracking event="start">
-              <![CDATA[ https://example.com/tracking/start/pause ]]>
-            </Tracking>
-            <Tracking event="complete">
-              <![CDATA[ https://example.com/tracking/complete/pause ]]>
-            </Tracking>
-          </TrackingEvents>
-          <MediaFiles>
-            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-              <![CDATA[ https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4 ]]>
-            </MediaFile>
-          </MediaFiles>
-        </Linear>
-      </Creative>
-    </Creatives>
-  </InLine>
-</Ad>
+  <!-- Pause Ad (Non-linear) -->
+  <Ad id="pause-ad-1">
+    <InLine>
+      <AdSystem>VAST Player Demo</AdSystem>
+      <AdTitle>Pause Overlay Ad</AdTitle>
+      <Impression>https://example.com/tracking/pause/impression</Impression>
+      <Creatives>
+        <Creative id="pause-overlay">
+          <NonLinearAds>
+            <NonLinear width="300" height="250">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://example.com/overlays/pause-ad.png]]>
+              </StaticResource>
+              <NonLinearClickThrough>
+                <![CDATA[https://example.com/click/pause-ad]]>
+              </NonLinearClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/tracking/pause/view]]>
+                </Tracking>
+                <Tracking event="click">
+                  <![CDATA[https://example.com/tracking/pause/click]]>
+                </Tracking>
+              </TrackingEvents>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
+  <!-- Post-roll Ad with Companion -->
+  <Ad id="post-roll-1">
+    <InLine>
+      <AdSystem>VAST Player Demo</AdSystem>
+      <AdTitle>Post-roll Video Ad</AdTitle>
+      <Impression>https://example.com/tracking/post-roll/impression</Impression>
+      <Creatives>
+        <Creative id="post-roll-video" sequence="3">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start">https://example.com/tracking/post-roll/start</Tracking>
+              <Tracking event="firstQuartile">https://example.com/tracking/post-roll/firstQuartile</Tracking>
+              <Tracking event="midpoint">https://example.com/tracking/post-roll/midpoint</Tracking>
+              <Tracking event="thirdQuartile">https://example.com/tracking/post-roll/thirdQuartile</Tracking>
+              <Tracking event="complete">https://example.com/tracking/post-roll/complete</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough>https://example.com/click/post-roll</ClickThrough>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
+                <![CDATA[https://example.com/videos/post-roll.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+        
+        <!-- Companion Ad for Post-roll -->
+        <Creative id="post-roll-companion">
+          <CompanionAds>
+            <Companion width="300" height="60">
+              <StaticResource creativeType="text/html">
+                <![CDATA[
+                  <div style="background:#f0f0f0;padding:10px;border-radius:5px;">
+                    <h4>Thanks for watching!</h4>
+                    <p>Visit our <a href="https://example.com">website</a></p>
+                  </div>
+                ]]>
+              </StaticResource>
+              <CompanionClickThrough>
+                <![CDATA[https://example.com/click/post-roll-companion]]>
+              </CompanionClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/tracking/post-roll/companion/view]]>
+                </Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 </VAST>
-

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="4.2">
-  
+
   <!-- ✅ Pre-roll Video Ad -->
   <Ad id="pre-roll-1" sequence="1">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Pre-roll Video</AdTitle>
+      <AdSystem>Test Server</AdSystem>
+      <AdTitle>Pre-roll Ad</AdTitle>
       <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
       <Creatives>
         <Creative sequence="1">
@@ -29,8 +29,8 @@
   <!-- ✅ Mid-roll Video Ad -->
   <Ad id="mid-roll-1" sequence="2">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Mid-roll Video</AdTitle>
+      <AdSystem>Test Server</AdSystem>
+      <AdTitle>Mid-roll Ad</AdTitle>
       <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
       <Creatives>
         <Creative sequence="1">
@@ -51,52 +51,26 @@
     </InLine>
   </Ad>
 
-  <!-- ✅ Post-roll Video Ad -->
-  <Ad id="post-roll-1" sequence="3">
+  <!-- ✅ Pause Ad as Linear Video -->
+  <Ad id="pause-ad-1">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Post-roll Video</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/post]]></Impression>
+      <AdSystem>Test Server</AdSystem>
+      <AdTitle>Pause Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
       <Creatives>
         <Creative sequence="1">
           <Linear>
-            <Duration>00:00:10</Duration>
+            <Duration>00:00:06</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/tracking/start/post]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/post]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/pause]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/pause]]></Tracking>
             </TrackingEvents>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4]]>
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- ✅ Pause Ad (NonLinear image overlay on pause) -->
-  <Ad id="pause-ad-1">
-    <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Pause Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative>
-          <NonLinearAds>
-            <NonLinear width="300" height="250" scalable="true" maintainAspectRatio="true">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/300x250?text=Paused+Ad]]>
-              </StaticResource>
-              <NonLinearClickThrough>
-                <![CDATA[https://example.com/click/pause]]>
-              </NonLinearClickThrough>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause]]></Tracking>
-              </TrackingEvents>
-            </NonLinear>
-          </NonLinearAds>
         </Creative>
       </Creatives>
     </InLine>

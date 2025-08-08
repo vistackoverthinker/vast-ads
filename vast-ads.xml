@@ -2,14 +2,13 @@
   <Ad id="preroll-ad-1">
     <InLine>
       <Creatives>
-        <!-- Linear Video Creative -->
         <Creative id="linear-creative" type="Linear">
           <Linear>
             <Duration>00:00:30</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-  <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm]]>
-</MediaFile>
+                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+              </MediaFile>
             </MediaFiles>
             <TrackingEvents>
               <Tracking event="start">
@@ -21,14 +20,13 @@
             </TrackingEvents>
           </Linear>
         </Creative>
-        
-        <!-- Companion Creative (separate from Linear) -->
+
         <Creative id="companion-creative" type="Companion">
           <CompanionAds>
             <Companion width="300" height="250">
-             <StaticResource creativeType="image/png">
-  <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Banner]]>
-</StaticResource>
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Banner]]>
+              </StaticResource>
               <CompanionClickThrough>
                 <![CDATA[https://example.com/click-url]]>
               </CompanionClickThrough>
@@ -44,4 +42,3 @@
     </InLine>
   </Ad>
 </VAST>
-

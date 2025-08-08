@@ -1,16 +1,25 @@
-<VAST version="4.2">
-  <Ad id="1">
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Pre-roll Ad -->
+  <Ad id="preroll-001">
     <InLine>
-      <AdSystem version="1.0">CustomAdServer</AdSystem>
-      <AdTitle>Pre-Roll Video Ad</AdTitle>
+      <AdSystem version="1.0">Custom Ad Server</AdSystem>
+      <AdTitle>Pre-Roll Sample Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/track/preroll/impression]]></Impression>
       <Creatives>
-        <!-- Pre-roll Video Ad -->
-        <Creative>
+        <Creative id="preroll-creative" sequence="1">
           <Linear>
             <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/track/preroll/start]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/track/preroll/complete]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://example.com/clickthrough/preroll]]></ClickThrough>
+            </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                https://example.com/ads/pre-roll-video.mp4
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" scalable="true" maintainAspectRatio="true">
+                <![CDATA[https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
@@ -19,21 +28,51 @@
     </InLine>
   </Ad>
 
-  <Ad id="2">
+  <!-- Mid-roll Ad -->
+  <Ad id="midroll-001">
     <InLine>
-      <AdSystem version="1.0">CustomAdServer</AdSystem>
-      <AdTitle>Pause Video Ad</AdTitle>
+      <AdSystem version="1.0">Custom Ad Server</AdSystem>
+      <AdTitle>Mid-Roll Sample Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/track/midroll/impression]]></Impression>
       <Creatives>
-        <!-- Pause Video Ad -->
-        <Creative>
+        <Creative id="midroll-creative" sequence="2">
           <Linear>
-            <Duration>00:00:05</Duration>
+            <Duration>00:00:15</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/track/midroll/start]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/track/midroll/complete]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://example.com/clickthrough/midroll]]></ClickThrough>
+            </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                https://example.com/ads/pause-ad-video.mp4
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" scalable="true" maintainAspectRatio="true">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Pause Ad (Non-linear Overlay) -->
+  <Ad id="pause-001">
+    <InLine>
+      <AdSystem version="1.0">Custom Ad Server</AdSystem>
+      <AdTitle>Pause Overlay Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/track/pause/impression]]></Impression>
+      <Creatives>
+        <Creative id="pause-creative" sequence="1">
+          <NonLinearAds>
+            <NonLinear width="300" height="250" scalable="true" maintainAspectRatio="true">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://via.placeholder.com/300x250.jpg?text=Pause+Ad]]></StaticResource>
+              <NonLinearClickThrough><![CDATA[https://example.com/clickthrough/pause]]></NonLinearClickThrough>
+            </NonLinear>
+            <TrackingEvents>
+              <Tracking event="creativeView"><![CDATA[https://example.com/track/pause/view]]></Tracking>
+            </TrackingEvents>
+          </NonLinearAds>
         </Creative>
       </Creatives>
     </InLine>

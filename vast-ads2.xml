@@ -1,37 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
-  <Ad id="20001" sequence="1">
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Pre-roll Video Ad -->
+  <Ad id="pre-roll-1" sequence="1">
     <InLine>
-      <AdSystem version="1.0">OpenAI Test Ads</AdSystem>
-      <AdTitle>Sample VAST 4.2 Ad 2</AdTitle>
-      <Description>Second test ad for VAST integration.</Description>
-      <Error><![CDATA[https://example.com/error]]></Error>
-      <Impression><![CDATA[https://example.com/impression]]></Impression>
-
+      <AdSystem>Custom Test Server</AdSystem>
+      <AdTitle>Pre-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pre]]></Impression>
       <Creatives>
-        <Creative id="20001-1" sequence="1">
+        <Creative sequence="1">
           <Linear>
-            <Duration>00:00:15</Duration>
-
+            <Duration>00:00:10</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://example.com/start]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://example.com/firstQuartile]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://example.com/midpoint]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://example.com/thirdQuartile]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://example.com/complete]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/pre]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://example.com/tracking/firstQuartile/pre]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://example.com/tracking/midpoint/pre]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://example.com/tracking/thirdQuartile/pre]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/pre]]></Tracking>
             </TrackingEvents>
-
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://example.com/clickthrough]]></ClickThrough>
-              <ClickTracking><![CDATA[https://example.com/clicktracking]]></ClickTracking>
-            </VideoClicks>
-
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" bitrate="800" maintainAspectRatio="true" scalable="true">
-                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4]]>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Mid-roll Video Ad -->
+  <Ad id="mid-roll-1" sequence="2">
+    <InLine>
+      <AdSystem>Custom Test Server</AdSystem>
+      <AdTitle>Mid-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/mid]]></Impression>
+      <Creatives>
+        <Creative sequence="1">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/mid]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/mid]]></Tracking>
+            </TrackingEvents>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Post-roll Video Ad -->
+  <Ad id="post-roll-1" sequence="3">
+    <InLine>
+      <AdSystem>Custom Test Server</AdSystem>
+      <AdTitle>Post-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/post]]></Impression>
+      <Creatives>
+        <Creative sequence="1">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/post]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/post]]></Tracking>
+            </TrackingEvents>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Pause Ad – NonLinear Overlay Creative -->
+  <Ad id="pause-ad-1" sequence="4">
+    <InLine>
+      <AdSystem>Custom Test Server</AdSystem>
+      <AdTitle>Pause Overlay Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
+      <Creatives>
+        <Creative sequence="1">
+          <NonLinearAds>
+            <NonLinear width="300" height="250" scalable="true" maintainAspectRatio="true">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://via.placeholder.com/300x250?text=Paused+Ad]]>
+              </StaticResource>
+              <NonLinearClickThrough>
+                <![CDATA[https://example.com/click/pause]]>
+              </NonLinearClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause]]></Tracking>
+              </TrackingEvents>
+            </NonLinear>
+          </NonLinearAds>
         </Creative>
       </Creatives>
     </InLine>

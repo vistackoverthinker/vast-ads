@@ -2,14 +2,28 @@
   <Ad id="preroll-ad-1">
     <InLine>
       <Creatives>
-        <Creative id="linear-creative">
+        <!-- Linear Video Creative -->
+        <Creative id="linear-creative" type="Linear">
           <Linear>
+            <Duration>00:00:30</Duration>
             <MediaFiles>
-              <MediaFile type="video/mp4" width="1280" height="720">
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
                 <![CDATA[https://example.com/ad-video.mp4]]>
               </MediaFile>
             </MediaFiles>
+            <TrackingEvents>
+              <Tracking event="start">
+                <![CDATA[https://example.com/tracking/start]]>
+              </Tracking>
+              <Tracking event="complete">
+                <![CDATA[https://example.com/tracking/complete]]>
+              </Tracking>
+            </TrackingEvents>
           </Linear>
+        </Creative>
+        
+        <!-- Companion Creative (separate from Linear) -->
+        <Creative id="companion-creative" type="Companion">
           <CompanionAds>
             <Companion width="300" height="250">
               <StaticResource creativeType="image/png">
@@ -18,6 +32,11 @@
               <CompanionClickThrough>
                 <![CDATA[https://example.com/click-url]]>
               </CompanionClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/tracking/companion-view]]>
+                </Tracking>
+              </TrackingEvents>
             </Companion>
           </CompanionAds>
         </Creative>

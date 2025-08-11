@@ -1,88 +1,54 @@
-<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="https://iabtechlab.com/wp‑content/uploads/2019/06/VAST‑4_2.xsd">
-
-  <!-- Preroll Ad -->
-  <Ad id="preroll">
+<VAST version="2.0">
+  <Ad id="601364">
     <InLine>
-      <AdSystem>ExampleAdServer</AdSystem>
-      <AdTitle>Preroll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/preroll]]></Impression>
+      <AdSystem>Adsystem Example</AdSystem>
+      <AdTitle>VAST 2.0</AdTitle>
+      <Description>VAST 2.0</Description>
+      <Error>http://myErrorURL/error</Error>
+      <Impression>http://myTrackingURL/impression</Impression>
       <Creatives>
-        <Creative>
+        <Creative AdID="12345">
           <Linear>
-            <Duration>00:00:15</Duration>
+           <Duration>00:00:30</Duration>
+            <TrackingEvents>
+              <Tracking event="creativeView">http://myTrackingURL/creativeView</Tracking>
+              <Tracking event="start">http://myTrackingURL/start</Tracking>
+              <Tracking event="midpoint">http://myTrackingURL/midpoint</Tracking>
+              <Tracking event="firstQuartile">http://myTrackingURL/firstQuartile</Tracking>
+              <Tracking event="thirdQuartile">http://myTrackingURL/thirdQuartile</Tracking>
+              <Tracking event="complete">http://myTrackingURL/complete</Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough>http://www.examplemedia.com</ClickThrough>
+              <ClickTracking>http://myTrackingURL/click</ClickTracking>
+            </VideoClicks>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4]]>
-              </MediaFile>
-            </MediaFiles>
+             <MediaFile delivery="progressive" type="video/x-flv" bitrate="500" width="400" height="300" scalable="true" maintainAspectRatio="true">
+        http://demo.examplemedia.com/video/acudeo/Carrot_400x300_500kb.flv
+          </MediaFile>
+         </MediaFiles>
           </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Midroll Ad -->
-  <Ad id="midroll" sequence="2">
-    <InLine>
-      <AdSystem>ExampleAdServer</AdSystem>
-      <AdTitle>Midroll Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/midroll]]></Impression>
-      <Creatives>
-        <Creative>
-          <Linear>
-            <Duration>00:00:10</Duration>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Pause Ad (Non-Linear) -->
-  <Ad id="pauseAd">
-    <InLine>
-      <AdSystem>ExampleAdServer</AdSystem>
-      <AdTitle>Pause Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative>
-          <NonLinearAds>
-            <NonLinear width="300" height="250" expandedWidth="300" expandedHeight="250">
-              <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://via.placeholder.com/300x250.png?text=Pause+Ad]]>
-              </StaticResource>
-              <NonLinearClickThrough><![CDATA[https://example.com/click/pause]]></NonLinearClickThrough>
-            </NonLinear>
-          </NonLinearAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Companion Ad -->
-  <Ad id="companionAd">
-    <InLine>
-      <AdSystem>ExampleAdServer</AdSystem>
-      <AdTitle>Companion Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/companion]]></Impression>
-      <Creatives>
-        <Creative>
-          <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Ad]]>
-              </StaticResource>
-              <CompanionClickThrough><![CDATA[https://example.com/click/companion]]></CompanionClickThrough>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
+    </Creative>
+    <Creative AdID="601364-Companion">
+      <CompanionAds>
+           <Companion width="300" height="250">
+             <StaticResource creativeType="image/jpeg">
+             http://demo.examplemedia.com/vast/this_is_the_ad.jpg
+             </StaticResource>
+             <TrackingEvents>
+               <Tracking event="creativeView">http://myTrackingURL/tracking</Tracking>
+             </TrackingEvents>
+           <CompanionClickThrough>http://www.examplemedia.com</CompanionClickThrough>
+           </Companion>
+           <Companion width="728" height="90">
+             <StaticResource creativeType="image/jpeg">
+             http://demo.examplemedia.com/vast/trackingbanner
+             </StaticResource>
+           <CompanionClickThrough>http://www.examplemedia.com</CompanionClickThrough>
+           </Companion>
+         </CompanionAds>
+       </Creative>
+     </Creatives>
+   </InLine>
+   </Ad>
 </VAST>

@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VAST version="4.2">
-  <Ad id="1">
+  <Ad id="companion-test">
     <InLine>
       <AdSystem>Test</AdSystem>
-      <AdTitle>Test Ad with Companion</AdTitle>
+      <AdTitle>Companion Test</AdTitle>
+      <Impression><![CDATA[https://example.com/track?event=impression]]></Impression>
       <Creatives>
         <Creative>
-          <Linear>
-            <MediaFiles>
-              <MediaFile type="video/mp4" width="1280" height="720">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-            <CompanionAds>
-              <Companion width="300" height="250">
-                <StaticResource creativeType="image/jpeg">
-                  <![CDATA[https://via.placeholder.com/300x250?text=Companion+Ad]]>
-                </StaticResource>
-              </Companion>
-            </CompanionAds>
-          </Linear>
+          <CompanionAds>
+            <Companion width="300" height="250">
+              <!-- REAL TEST IMAGE (Wikimedia Commons - always available) -->
+              <StaticResource creativeType="image/jpeg">
+                <![CDATA[https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/300px-Image_created_with_a_mobile_phone.png]]>
+              </StaticResource>
+              <!-- WORKING CLICK-THROUGH URL -->
+              <CompanionClickThrough>
+                <![CDATA[https://www.wikipedia.org]]>
+              </CompanionClickThrough>
+              <!-- Tracking for testing -->
+              <TrackingEvents>
+                <Tracking event="creativeView">
+                  <![CDATA[https://example.com/track?event=view]]>
+                </Tracking>
+                <Tracking event="click">
+                  <![CDATA[https://example.com/track?event=click]]>
+                </Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>

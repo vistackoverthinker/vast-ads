@@ -1,31 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2">
-  <Ad id="companion-test">
+<VAST version="3.0">
+  <!-- PREROLL AD (Test 15s video) -->
+  <Ad id="preroll">
     <InLine>
-      <AdSystem>Test</AdSystem>
-      <AdTitle>Companion Test</AdTitle>
-      <Impression><![CDATA[https://example.com/track?event=impression]]></Impression>
+      <AdSystem>Test Ad Server</AdSystem>
+      <AdTitle>Sample Preroll</AdTitle>
+      <Impression>https://example.com/track?ad=preroll</Impression>
       <Creatives>
-        <Creative>
+        <Creative id="preroll-video">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <MediaFiles>
+              <!-- Sample video from Wikimedia Commons -->
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" codec="avc1.42E01E">
+                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4
+              </MediaFile>
+            </MediaFiles>
+            <VideoClicks>
+              <ClickThrough>https://example.com/click?ad=preroll</ClickThrough>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- PAUSE AD (Test 10s video) -->
+  <Ad id="pause-ad">
+    <InLine>
+      <AdSystem>Test Ad Server</AdSystem>
+      <AdTitle>Sample Pause Ad</AdTitle>
+      <Impression>https://example.com/track?ad=pause</Impression>
+      <Creatives>
+        <Creative id="pause-video">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <MediaFiles>
+              <!-- Sample video from Google -->
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
+                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+              </MediaFile>
+            </MediaFiles>
+            <VideoClicks>
+              <ClickThrough>https://example.com/click?ad=pause</ClickThrough>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- COMPANION AD (Test banner) -->
+  <Ad id="companion">
+    <InLine>
+      <AdSystem>Test Ad Server</AdSystem>
+      <AdTitle>Sample Companion</AdTitle>
+      <Impression>https://example.com/track?ad=companion</Impression>
+      <Creatives>
+        <Creative id="companion-banner">
           <CompanionAds>
+            <!-- Sample 300x250 banner from Placeholder.com -->
             <Companion width="300" height="250">
-              <!-- REAL TEST IMAGE (Wikimedia Commons - always available) -->
               <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/300px-Image_created_with_a_mobile_phone.png]]>
+                https://via.placeholder.com/300x250
               </StaticResource>
-              <!-- WORKING CLICK-THROUGH URL -->
-              <CompanionClickThrough>
-                <![CDATA[https://www.wikipedia.org]]>
-              </CompanionClickThrough>
-              <!-- Tracking for testing -->
-              <TrackingEvents>
-                <Tracking event="creativeView">
-                  <![CDATA[https://example.com/track?event=view]]>
-                </Tracking>
-                <Tracking event="click">
-                  <![CDATA[https://example.com/track?event=click]]>
-                </Tracking>
-              </TrackingEvents>
+              <CompanionClickThrough>https://example.com/click?ad=companion</CompanionClickThrough>
+              <AltText>Advertisement</AltText>
             </Companion>
           </CompanionAds>
         </Creative>

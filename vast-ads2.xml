@@ -79,28 +79,6 @@
   </Ad>
 
   <!-- Pause Ad – NonLinear Overlay Creative -->
-  <Ad id="pause-ad-1" sequence="4">
-    <InLine>
-      <AdSystem>Custom Test Server</AdSystem>
-      <AdTitle>Pause Overlay Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative sequence="1">
-          <NonLinearAds>
-            <NonLinear width="300" height="250" scalable="true" maintainAspectRatio="true">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/300x250?text=Paused+Ad]]>
-              </StaticResource>
-              <NonLinearClickThrough>
-                <![CDATA[https://example.com/click/pause]]>
-              </NonLinearClickThrough>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause]]></Tracking>
-              </TrackingEvents>
-            </NonLinear>
-          </NonLinearAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
+  
 </VAST>
+

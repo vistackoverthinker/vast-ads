@@ -78,8 +78,7 @@
     </InLine>
   </Ad>
 
-  <!-- Pause Ad – NonLinear Overlay Creative -->
-   <Ad id="pause-ad">
+  <Ad id="pause-ad">
     <InLine>
       <AdSystem>Plyr Test Server</AdSystem>
       <AdTitle>Pause Ad</AdTitle>
@@ -119,6 +118,43 @@
       </Creatives>
     </InLine>
   </Ad>
+
+  <!-- Standalone Companion Ad -->
+  <Ad id="companion-ad">
+    <InLine>
+      <AdSystem>Plyr Test Server</AdSystem>
+      <AdTitle>Companion Ad</AdTitle>
+      <Impression><![CDATA[https://yourdomain.test/impression/companion]]></Impression>
+      <Creatives>
+        <Creative id="companion-creative">
+          <CompanionAds>
+            <Companion width="300" height="250" id="companion1">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://i.postimg.cc/Gt1d6rPv/companion1.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://yourdomain.test/companion-landing]]></CompanionClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion1]]></Tracking>
+              </TrackingEvents>
+              <AltText>Main Companion Ad</AltText>
+            </Companion>
+            <Companion width="728" height="90" id="companion2">
+              <HTMLResource><![CDATA[
+                <div style="background:#f0f0f0;border:1px solid #ccc;width:728px;height:90px;text-align:center;">
+                  <a href="https://yourdomain.test/companion-landing" target="_blank">
+                    <img src="https://i.postimg.cc/KzM0kG3v/companion2.jpg" width="728" height="90" alt="Banner Ad">
+                  </a>
+                </div>
+              ]]></HTMLResource>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion2]]></Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+ 
 </VAST>
+
 
 

@@ -1,77 +1,112 @@
-<VAST version="4.2" xmlns="http://www.iab.com/VAST">
-       <Ad id="ad-id-12345">
-        <InLine>
-         <AdSystem>Test Ad Server</AdSystem>
-           <AdTitle>Complete VAST Test Ad</AdTitle>
-          <Impression><![CDATA[https://example.com/impression]]></Impression>
-       <Creatives>
-    
-           <!-- Creative 1: Pre-roll Video with a Companion Ad -->
-           <Creative id="pre-roll-ad">
-             <Linear>
-             <Duration>00:00:15</Duration>
-               <TrackingEvents>
-                <Tracking event="start"><![CDATA[https://example.com/tracking/start]]></Tracking>
-               <Tracking event="firstQuartile"><![CDATA[https://example.com/tracking/firstQuartile]]></Tracking>
-               <Tracking event="midpoint"><![CDATA[https://example.com/tracking/midpoint]]></Tracking>
-               <Tracking event="thirdQuartile"><![CDATA[https://example.com/tracking/thirdQuartile]]></Tracking>
-               <Tracking event="complete"><![CDATA[https://example.com/tracking/complete]]></Tracking>
-              <Tracking event="skip"><![CDATA[https://example.com/tracking/skip]]></Tracking>
-             </TrackingEvents>
-             <VideoClicks>
-               <ClickThrough><![CDATA[https://example.com/clickthrough]]></ClickThrough>
-            <ClickTracking><![CDATA[https://example.com/tracking/click]]></ClickTracking>
-             </VideoClicks>
-              <MediaFiles>
-                <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1500">
-                   <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+  
+  <!-- Pause Ad (Linear Video) -->
+  <Ad id="pause-ad">
+    <InLine>
+      <AdSystem>AdServer</AdSystem>
+      <AdTitle>Pause Ad</AdTitle>
+      <Impression><![CDATA[https://adserver.com/impression/pause]]></Impression>
+      <Creatives>
+        <Creative id="pause-creative">
+          <Linear>
+            <Duration>00:00:15</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" scalable="true" maintainAspectRatio="true">
+                <![CDATA[https://example.com/ads/pause-ad.mp4]]>
               </MediaFile>
             </MediaFiles>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://advertiser.com/pause-landing]]></ClickThrough>
+              <ClickTracking><![CDATA[https://adserver.com/click/pause]]></ClickTracking>
+            </VideoClicks>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://adserver.com/tracking/start/pause]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://adserver.com/tracking/firstQuartile/pause]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://adserver.com/tracking/midpoint/pause]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://adserver.com/tracking/thirdQuartile/pause]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://adserver.com/tracking/complete/pause]]></Tracking>
+            </TrackingEvents>
             <CompanionAds>
-                 <Companion width="300" height="250" id="companion-1">
-                 <StaticResource creativeType="image/png">
-                   <![CDATA[https://via.placeholder.com/300x250/0066cc/ffffff?text=Companion+Ad]]>
-                </StaticResource>
-                 <CompanionClickThrough><![CDATA[https://example.com/companion-click]]></CompanionClickThrough>
+              <Companion width="300" height="250" id="pause-companion">
+                <StaticResource creativeType="image/png"><![CDATA[https://example.com/ads/pause-companion.png]]></StaticResource>
+                <CompanionClickThrough><![CDATA[https://advertiser.com/pause-companion-landing]]></CompanionClickThrough>
                 <TrackingEvents>
-                       <Tracking event="creativeView"><![CDATA[https://example.com/tracking/companion-view]]></Tracking>
-                   </TrackingEvents>
-               </Companion>
-             </CompanionAds>
-           </Linear>
-         </Creative>
-   
-        <!-- Creative 2: Overlay Ad (NonLinear) -->
-           <Creative id="overlay-ad">
-              <NonLinearAds>
-                    <NonLinear width="480" height="70" minSuggestedDuration="00:00:10">
-                    <StaticResource creativeType="image/png">
-                           <![CDATA[https://via.placeholder.com/480x70/ff9900/000000?text=Overlay+Ad+-+Click+Me!]]>
-                       </StaticResource>
-                     <NonLinearClickThrough><![CDATA[https://example.com/overlay-click]]></NonLinearClickThrough>
-                     <TrackingEvents>
-                         <Tracking event="creativeView"><![CDATA[https://example.com/tracking/overlay-view]]></Tracking>
-                     </TrackingEvents>
-                  </NonLinear>
-                </NonLinearAds>
-         </Creative>
-
-            <!-- Creative 3: Pause Ad (NonLinear) -->
-       <Creative id="pause-ad">
-             <NonLinearAds>
-                   <NonLinear width="300" height="250" minSuggestedDuration="00:00:15">
-                     <StaticResource creativeType="image/png">
-                            <![CDATA[https://via.placeholder.com/300x250/cc0000/ffffff?text=PAUSE+AD]]>
-                        </StaticResource>
-                        <NonLinearClickThrough><![CDATA[https://example.com/pause-click]]></NonLinearClickThrough>
-                         <TrackingEvents>
-                            <Tracking event="creativeView"><![CDATA[https://example.com/tracking/pause-view]]></Tracking>
-                     </TrackingEvents>
-               </NonLinear>
-             </NonLinearAds>
+                  <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/pause]]></Tracking>
+                </TrackingEvents>
+                <AltText>Pause Companion Ad</AltText>
+              </Companion>
+            </CompanionAds>
+          </Linear>
         </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-     </Creatives>
-     </InLine>
-      </Ad>
-   77 </VAST>
+  <!-- Standalone Companion Ad -->
+  <Ad id="companion-ad">
+    <InLine>
+      <AdSystem>AdServer</AdSystem>
+      <AdTitle>Companion Ad</AdTitle>
+      <Impression><![CDATA[https://adserver.com/impression/companion]]></Impression>
+      <Creatives>
+        <Creative id="companion-creative">
+          <CompanionAds>
+            <Companion width="300" height="250" id="companion1">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://example.com/ads/companion1.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://advertiser.com/companion-landing]]></CompanionClickThrough>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/companion1]]></Tracking>
+              </TrackingEvents>
+              <AltText>Main Companion Ad</AltText>
+            </Companion>
+            <Companion width="728" height="90" id="companion2">
+              <HTMLResource><![CDATA[
+                <div style="background:#f0f0f0;border:1px solid #ccc;width:728px;height:90px;text-align:center;">
+                  <a href="https://advertiser.com/companion-landing" target="_blank">
+                    <img src="https://example.com/ads/companion2.jpg" width="728" height="90" alt="Banner Ad">
+                  </a>
+                </div>
+              ]]></HTMLResource>
+              <TrackingEvents>
+                <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/companion2]]></Tracking>
+              </TrackingEvents>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Standard Pre-Roll Ad (Example) -->
+  <Ad id="pre-roll">
+    <InLine>
+      <AdSystem>AdServer</AdSystem>
+      <AdTitle>Pre-Roll Ad</AdTitle>
+      <Impression><![CDATA[https://adserver.com/impression/preroll]]></Impression>
+      <Creatives>
+        <Creative id="preroll-creative">
+          <Linear>
+            <Duration>00:00:30</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
+                <![CDATA[https://example.com/ads/pre-roll.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://advertiser.com]]></ClickThrough>
+            </VideoClicks>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://adserver.com/tracking/start/preroll]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://adserver.com/tracking/firstQuartile/preroll]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://adserver.com/tracking/midpoint/preroll]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://adserver.com/tracking/thirdQuartile/preroll]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://adserver.com/tracking/complete/preroll]]></Tracking>
+            </TrackingEvents>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+</VAST>

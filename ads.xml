@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd">
+<VAST version="4.2">
   
-  <!-- Pause Ad (Linear Video) -->
+  <!-- Pause Ad -->
   <Ad id="pause-ad">
     <InLine>
-      <AdSystem>AdServer</AdSystem>
+      <AdSystem>Plyr Test Server</AdSystem>
       <AdTitle>Pause Ad</AdTitle>
-      <Impression><![CDATA[https://adserver.com/impression/pause]]></Impression>
+      <Impression><![CDATA[https://yourdomain.test/impression/pause]]></Impression>
       <Creatives>
         <Creative id="pause-creative">
           <Linear>
             <Duration>00:00:15</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" scalable="true" maintainAspectRatio="true">
-                <![CDATA[https://example.com/ads/pause-ad.mp4]]>
+                <![CDATA[https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4]]>
               </MediaFile>
             </MediaFiles>
             <VideoClicks>
-              <ClickThrough><![CDATA[https://advertiser.com/pause-landing]]></ClickThrough>
-              <ClickTracking><![CDATA[https://adserver.com/click/pause]]></ClickTracking>
+              <ClickThrough><![CDATA[https://yourdomain.test/pause-landing]]></ClickThrough>
+              <ClickTracking><![CDATA[https://yourdomain.test/click/pause]]></ClickTracking>
             </VideoClicks>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://adserver.com/tracking/start/pause]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://adserver.com/tracking/firstQuartile/pause]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://adserver.com/tracking/midpoint/pause]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://adserver.com/tracking/thirdQuartile/pause]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://adserver.com/tracking/complete/pause]]></Tracking>
+              <Tracking event="start"><![CDATA[https://yourdomain.test/tracking/start/pause]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://yourdomain.test/tracking/firstQuartile/pause]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://yourdomain.test/tracking/midpoint/pause]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://yourdomain.test/tracking/thirdQuartile/pause]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://yourdomain.test/tracking/complete/pause]]></Tracking>
             </TrackingEvents>
             <CompanionAds>
               <Companion width="300" height="250" id="pause-companion">
-                <StaticResource creativeType="image/png"><![CDATA[https://example.com/ads/pause-companion.png]]></StaticResource>
-                <CompanionClickThrough><![CDATA[https://advertiser.com/pause-companion-landing]]></CompanionClickThrough>
+                <StaticResource creativeType="image/png"><![CDATA[https://i.postimg.cc/3wR9z5nB/sample-companion.png]]></StaticResource>
+                <CompanionClickThrough><![CDATA[https://yourdomain.test/pause-companion-landing]]></CompanionClickThrough>
                 <TrackingEvents>
-                  <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/pause]]></Tracking>
+                  <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/pause]]></Tracking>
                 </TrackingEvents>
                 <AltText>Pause Companion Ad</AltText>
               </Companion>
@@ -46,30 +46,30 @@
   <!-- Standalone Companion Ad -->
   <Ad id="companion-ad">
     <InLine>
-      <AdSystem>AdServer</AdSystem>
+      <AdSystem>Plyr Test Server</AdSystem>
       <AdTitle>Companion Ad</AdTitle>
-      <Impression><![CDATA[https://adserver.com/impression/companion]]></Impression>
+      <Impression><![CDATA[https://yourdomain.test/impression/companion]]></Impression>
       <Creatives>
         <Creative id="companion-creative">
           <CompanionAds>
             <Companion width="300" height="250" id="companion1">
-              <StaticResource creativeType="image/jpeg"><![CDATA[https://example.com/ads/companion1.jpg]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://advertiser.com/companion-landing]]></CompanionClickThrough>
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://i.postimg.cc/Gt1d6rPv/companion1.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://yourdomain.test/companion-landing]]></CompanionClickThrough>
               <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/companion1]]></Tracking>
+                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion1]]></Tracking>
               </TrackingEvents>
               <AltText>Main Companion Ad</AltText>
             </Companion>
             <Companion width="728" height="90" id="companion2">
               <HTMLResource><![CDATA[
                 <div style="background:#f0f0f0;border:1px solid #ccc;width:728px;height:90px;text-align:center;">
-                  <a href="https://advertiser.com/companion-landing" target="_blank">
-                    <img src="https://example.com/ads/companion2.jpg" width="728" height="90" alt="Banner Ad">
+                  <a href="https://yourdomain.test/companion-landing" target="_blank">
+                    <img src="https://i.postimg.cc/KzM0kG3v/companion2.jpg" width="728" height="90" alt="Banner Ad">
                   </a>
                 </div>
               ]]></HTMLResource>
               <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://adserver.com/tracking/companionView/companion2]]></Tracking>
+                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion2]]></Tracking>
               </TrackingEvents>
             </Companion>
           </CompanionAds>
@@ -78,30 +78,30 @@
     </InLine>
   </Ad>
 
-  <!-- Standard Pre-Roll Ad (Example) -->
+  <!-- Pre-Roll Ad -->
   <Ad id="pre-roll">
     <InLine>
-      <AdSystem>AdServer</AdSystem>
+      <AdSystem>Plyr Test Server</AdSystem>
       <AdTitle>Pre-Roll Ad</AdTitle>
-      <Impression><![CDATA[https://adserver.com/impression/preroll]]></Impression>
+      <Impression><![CDATA[https://yourdomain.test/impression/preroll]]></Impression>
       <Creatives>
         <Creative id="preroll-creative">
           <Linear>
             <Duration>00:00:30</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://example.com/ads/pre-roll.mp4]]>
+                <![CDATA[https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4]]>
               </MediaFile>
             </MediaFiles>
             <VideoClicks>
-              <ClickThrough><![CDATA[https://advertiser.com]]></ClickThrough>
+              <ClickThrough><![CDATA[https://yourdomain.test]]></ClickThrough>
             </VideoClicks>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://adserver.com/tracking/start/preroll]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://adserver.com/tracking/firstQuartile/preroll]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://adserver.com/tracking/midpoint/preroll]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://adserver.com/tracking/thirdQuartile/preroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://adserver.com/tracking/complete/preroll]]></Tracking>
+              <Tracking event="start"><![CDATA[https://yourdomain.test/tracking/start/preroll]]></Tracking>
+              <Tracking event="firstQuartile"><![CDATA[https://yourdomain.test/tracking/firstQuartile/preroll]]></Tracking>
+              <Tracking event="midpoint"><![CDATA[https://yourdomain.test/tracking/midpoint/preroll]]></Tracking>
+              <Tracking event="thirdQuartile"><![CDATA[https://yourdomain.test/tracking/thirdQuartile/preroll]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://yourdomain.test/tracking/complete/preroll]]></Tracking>
             </TrackingEvents>
           </Linear>
         </Creative>

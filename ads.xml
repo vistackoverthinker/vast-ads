@@ -1,75 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<VAST version="3.0">
-  <!-- PREROLL AD (Test 15s video) -->
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://iabtechlab.com/wp‑content/uploads/2019/06/VAST‑4_2.xsd">
+
+  <!-- Preroll Ad -->
   <Ad id="preroll">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Sample Preroll</AdTitle>
-      <Impression>https://example.com/track?ad=preroll</Impression>
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Preroll Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/preroll]]></Impression>
       <Creatives>
-        <Creative id="preroll-video">
+        <Creative>
           <Linear>
             <Duration>00:00:15</Duration>
             <MediaFiles>
-              <!-- Sample video from Wikimedia Commons -->
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" codec="avc1.42E01E">
-                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4]]>
               </MediaFile>
             </MediaFiles>
-            <VideoClicks>
-              <ClickThrough>https://example.com/click?ad=preroll</ClickThrough>
-            </VideoClicks>
           </Linear>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
-  <!-- PAUSE AD (Test 10s video) -->
-  <Ad id="pause-ad">
+  <!-- Midroll Ad -->
+  <Ad id="midroll" sequence="2">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Sample Pause Ad</AdTitle>
-      <Impression>https://example.com/track?ad=pause</Impression>
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Midroll Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/midroll]]></Impression>
       <Creatives>
-        <Creative id="pause-video">
+        <Creative>
           <Linear>
             <Duration>00:00:10</Duration>
             <MediaFiles>
-              <!-- Sample video from Google -->
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4]]>
               </MediaFile>
             </MediaFiles>
-            <VideoClicks>
-              <ClickThrough>https://example.com/click?ad=pause</ClickThrough>
-            </VideoClicks>
           </Linear>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
-  <!-- COMPANION AD (Test banner) -->
-  <Ad id="companion">
+  <!-- Pause Ad (Non-Linear) -->
+  <Ad id="pauseAd">
     <InLine>
-      <AdSystem>Test Ad Server</AdSystem>
-      <AdTitle>Sample Companion</AdTitle>
-      <Impression>https://example.com/track?ad=companion</Impression>
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Pause Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
       <Creatives>
-        <Creative id="companion-banner">
+        <Creative>
+          <NonLinearAds>
+            <NonLinear width="300" height="250" expandedWidth="300" expandedHeight="250">
+              <StaticResource creativeType="image/jpeg">
+                <![CDATA[https://via.placeholder.com/300x250.png?text=Pause+Ad]]>
+              </StaticResource>
+              <NonLinearClickThrough><![CDATA[https://example.com/click/pause]]></NonLinearClickThrough>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Companion Ad -->
+  <Ad id="companionAd">
+    <InLine>
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Companion Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/companion]]></Impression>
+      <Creatives>
+        <Creative>
           <CompanionAds>
-            <!-- Sample 300x250 banner from Placeholder.com -->
             <Companion width="300" height="250">
               <StaticResource creativeType="image/jpeg">
-                https://via.placeholder.com/300x250
+                <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Ad]]>
               </StaticResource>
-              <CompanionClickThrough>https://example.com/click?ad=companion</CompanionClickThrough>
-              <AltText>Advertisement</AltText>
+              <CompanionClickThrough><![CDATA[https://example.com/click/companion]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
+
 </VAST>

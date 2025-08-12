@@ -1,112 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2">
-  
-  <!-- Pre-Roll Ad - 15s Test Video -->
-  <Ad id="pre-roll">
-    <InLine>
-      <AdSystem>TestServer</AdSystem>
-      <AdTitle>Pre-Roll Test</AdTitle>
-      <Impression><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?type=impression&adid=pre]]></Impression>
-      <Creatives>
-        <Creative>
-          <Linear>
-            <Duration>00:00:15</Duration>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://example.com]]></ClickThrough>
-            </VideoClicks>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?event=start&adid=pre]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?event=complete&adid=pre]]></Tracking>
-            </TrackingEvents>
-            <CompanionAds>
-              <Companion width="300" height="250">
-                <StaticResource creativeType="image/jpeg">
-                  <![CDATA[https://via.placeholder.com/300x250?text=Pre-Roll+Companion]]>
-                </StaticResource>
-              </Companion>
-            </CompanionAds>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Mid-Roll Ad - 20s Test Video -->
-  <Ad id="mid-roll">
-    <InLine>
-      <AdSystem>TestServer</AdSystem>
-      <AdTitle>Mid-Roll Test</AdTitle>
-      <Impression><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?type=impression&adid=mid]]></Impression>
-      <Creatives>
-        <Creative>
-          <Linear>
-            <Duration>00:00:20</Duration>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?event=start&adid=mid]]></Tracking>
-            </TrackingEvents>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Pause Ad - 10s Test Video -->
-  <Ad id="pause-ad">
-    <InLine>
-      <AdSystem>TestServer</AdSystem>
-      <AdTitle>Pause Test</AdTitle>
-      <Impression><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?type=impression&adid=pause]]></Impression>
-      <Creatives>
-        <Creative>
-          <Linear>
-            <Duration>00:00:10</Duration>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-            <CompanionAds>
-              <Companion width="300" height="250">
-                <StaticResource creativeType="image/png">
-                  <![CDATA[https://via.placeholder.com/300x250/FF0000/FFFFFF?text=Pause+Companion]]>
-                </StaticResource>
-              </Companion>
-            </CompanionAds>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- Post-Roll Ad - 12s Test Video -->
-  <Ad id="post-roll">
-    <InLine>
-      <AdSystem>TestServer</AdSystem>
-      <AdTitle>Post-Roll Test</AdTitle>
-      <Impression><![CDATA[https://vmap.snapsnapcontent.net/api/v1/track?type=impression&adid=post]]></Impression>
-      <Creatives>
-        <Creative>
-          <Linear>
-            <Duration>00:00:12</Duration>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
+<VAST version="4.0">
+    <Ad id="preroll_1" sequence="1">
+        <InLine>
+            <AdSystem>Test Ad System</AdSystem>
+            <AdTitle>Pre-Roll Test Ad</AdTitle>
+            <Creatives>
+                <Creative id="linear_1" sequence="1">
+                    <Linear skipoffset="00:00:05">
+                        <Duration>00:00:15</Duration>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+                            </MediaFile>
+                        </MediaFiles>
+                        <TrackingEvents>
+                            <Tracking event="start">https://example.com/track/start</Tracking>
+                            <Tracking event="complete">https://example.com/track/complete</Tracking>
+                        </TrackingEvents>
+                    </Linear>
+                </Creative>
+                <Creative id="companion_1" sequence="2">
+                    <CompanionAds>
+                        <Companion width="300" height="250">
+                            <StaticResource creativeType="image/png">
+                                https://via.placeholder.com/300x250/0066cc/ffffff?text=Companion+Ad
+                            </StaticResource>
+                            <CompanionClickThrough>https://example.com</CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView">https://example.com/track/companion</Tracking>
+                            </TrackingEvents>
+                        </Companion>
+                    </CompanionAds>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+    
+    <Ad id="midroll_1" sequence="50">
+        <InLine>
+            <AdSystem>Test Ad System</AdSystem>
+            <AdTitle>Mid-Roll Test Ad</AdTitle>
+            <Creatives>
+                <Creative id="linear_2" sequence="1">
+                    <Linear skipoffset="00:00:03">
+                        <Duration>00:00:10</Duration>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+    
+    <Ad id="postroll_1" sequence="99">
+        <InLine>
+            <AdSystem>Test Ad System</AdSystem>
+            <AdTitle>Post-Roll Test Ad</AdTitle>
+            <Creatives>
+                <Creative id="linear_3" sequence="1">
+                    <Linear>
+                        <Duration>00:00:12</Duration>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                                https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+    
+    <Ad id="pause_ad" sequence="0">
+        <InLine>
+            <AdSystem>Test Ad System</AdSystem>
+            <AdTitle>Pause Ad</AdTitle>
+            <Creatives>
+                <Creative id="nonlinear_1" sequence="1">
+                    <NonLinearAds>
+                        <NonLinear width="300" height="200">
+                            <StaticResource creativeType="image/png">
+                                https://via.placeholder.com/300x200/ff6600/ffffff?text=Pause+Ad
+                            </StaticResource>
+                            <NonLinearClickThrough>https://example.com</NonLinearClickThrough>
+                        </NonLinear>
+                    </NonLinearAds>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
 </VAST>

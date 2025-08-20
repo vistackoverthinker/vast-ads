@@ -1,40 +1,41 @@
-VAST version="2.0">
-    2   <Ad id="1">
-    3     <InLine>
-    4       <AdSystem>2.0</AdSystem>
-    5       <AdTitle>Test VAST Ad</AdTitle>
-    6       <Creatives>
-    7         <Creative>
-    8           <Linear>
-    9             <Duration>00:00:15</Duration>
-   10             <TrackingEvents>
-   11               <Tracking event="start">https://example.com/tracking/start</Tracking>
-   12               <Tracking event="midpoint">https://example.com/tracking/midpoint</Tracking>
-   13               <Tracking event="complete">https://example.com/tracking/complete</Tracking>
-   14             </TrackingEvents>
-   15             <VideoClicks>
-   16               <ClickThrough>https://www.google.com</ClickThrough>
-   17             </VideoClicks>
-   18             <MediaFiles>
-   19               <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1500">
-   20                 <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro.mp4]]>
-   21               </MediaFile>
-   22             </MediaFiles>
-   23           </Linear>
-   24         </Creative>
-   25         <Creative>
-   26           <CompanionAds>
-   27             <Companion width="300" height="250">
-   28               <StaticResource creativeType="image/png">
-   29                 <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Ad]]>
-   30               </StaticResource>
-   31               <CompanionClickThrough>
-   32                 <![CDATA[https://www.google.com]]>
-   33               </CompanionClickThrough>
-   34             </Companion>
-   35           </CompanionAds>
-   36         </Creative>
-   37       </Creatives>
-   38     </InLine>
-   39   </Ad>
-   40 </VAST>
+<VAST version="2.0">
+       <Ad id="1">
+       <InLine>
+          <AdSystem>2.0</AdSystem>
+          <AdTitle>Test VAST Ad</AdTitle>
+         <Creatives>
+            <Creative>
+          <Linear>
+             <Duration>00:00:15</Duration>
+              <TrackingEvents>
+                <Tracking event="start">https://example.com/tracking/start</Tracking>
+               <Tracking event="midpoint">https://example.com/tracking/midpoint</Tracking>
+              <Tracking event="complete">https://example.com/tracking/complete</Tracking>
+             </TrackingEvents>
+             <VideoClicks>
+               <ClickThrough>https://www.google.com</ClickThrough>
+             </VideoClicks>
+             <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1500">
+                  <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro.mp4]]>
+                </MediaFile>
+              </MediaFiles>
+              </Linear>
+          </Creative>
+           <Creative>
+           <CompanionAds>
+              <Companion width="300" height="250">
+              <StaticResource creativeType="image/png">
+               <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+Ad]]>
+                </StaticResource>
+                 <CompanionClickThrough>
+                  <![CDATA[https://www.google.com]]>
+                 </CompanionClickThrough>
+                </Companion>
+           </CompanionAds>
+           </Creative>
+         </Creatives>
+      </InLine>
+    </Ad>
+  </VAST>
+

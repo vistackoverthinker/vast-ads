@@ -1,146 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<VAST version="3.0">
-    <Ad id="comprehensive-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Comprehensive Ad Test</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=comprehensive_impression]]></Impression>
-            <Creatives>
-                <!-- Pre-Roll Video -->
-                <Creative id="preroll-video" sequence="1">
-                    <Linear>
-                        <Duration>00:00:15</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=preroll_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=preroll_complete]]></Tracking>
-                            <Tracking event="skip"><![CDATA[https://httpbin.org/get?event=preroll_skip]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                    </Linear>
-                </Creative>
+<VAST version="4.2">
+  
+  <!-- 🔹 Pause Ad (non-linear image/HTML overlay) -->
+  <Ad id="pause-banner">
+    <InLine>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear width="300" height="250" minSuggestedDuration="15">
+              <!-- 👇 Replace with your own image URL -->
+              <StaticResource creativeType="image/jpeg">
+                <![CDATA[https://vistackoverthinker.github.io/vast-ads/wallpaperflare.com_wallpaper%20(2).jpg]]>
+              </StaticResource>
+              <NonLinearClickThrough>
+                <![CDATA[https://example.com]]>
+              </NonLinearClickThrough>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-                <!-- Wait Ad: Video that plays when paused -->
-                <Creative id="wait-video" adId="pause-video-001">
-                    <Linear>
-                        <Duration>00:00:10</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=wait_ad_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=wait_ad_complete]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                    </Linear>
-                </Creative>
+  <!-- 🔹 Pause-Triggered Ad (linear video on pause) -->
+  <Ad id="pause-video">
+    <InLine>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <MediaFiles>
+              <!-- 👇 Replace with your own video URL -->
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://your-username.github.io/your-repo/videos/pause-triggered.mp4]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-                <!-- Mid-Roll Video -->
-                <Creative id="midroll-video" sequence="2">
-                    <Linear>
-                        <Duration>00:00:20</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=midroll_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=midroll_complete]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                    </Linear>
-                </Creative>
+  <!-- 🔹 Companion Ad (sidebar/overlay) -->
+  <Ad id="companion-test">
+    <InLine>
+      <Creatives>
+        <Creative>
+          <CompanionAds>
+            <Companion width="300" height="250">
+              <!-- 👇 Replace with your own image URL -->
+              <StaticResource creativeType="image/jpeg">
+                <![CDATA[https://vistackoverthinker.github.io/vast-ads/wallpaperflare.com_wallpaper%20(2).jpg]]>
+              </StaticResource>
+              <CompanionClickThrough>
+                <![CDATA[https://example.com]]>
+              </CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-                <!-- Post-Roll Video -->
-                <Creative id="postroll-video" sequence="99">
-                    <Linear>
-                        <Duration>00:00:12</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=postroll_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=postroll_complete]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                    </Linear>
-                </Creative>
-
-                <!-- Pause Overlay -->
-                <Creative id="pause-overlay" adId="pause-overlay-001">
-                    <NonLinearAds>
-                        <NonLinear width="400" height="300" minSuggestedDuration="00:00:10">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=PAUSE+OVERLAY+AD]]>
-                            </StaticResource>
-                            <NonLinearClickThrough>
-                                <![CDATA[https://example.com/pause-overlay-click]]>
-                            </NonLinearClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=pause_overlay_view]]></Tracking>
-                            </TrackingEvents>
-                        </NonLinear>
-                    </NonLinearAds>
-                </Creative>
-
-                <!-- Video Overlay -->
-                <Creative id="video-overlay">
-                    <NonLinearAds>
-                        <NonLinear width="300" height="60" minSuggestedDuration="00:00:15">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/300x60/FBBC04/000000?text=VIDEO+OVERLAY]]>
-                            </StaticResource>
-                            <NonLinearClickThrough>
-                                <![CDATA[https://example.com/overlay-click]]>
-                            </NonLinearClickThrough>
-                        </NonLinear>
-                    </NonLinearAds>
-                </Creative>
-
-                <!-- Companion Ads -->
-                <Creative id="companions">
-                    <CompanionAds>
-                        <Companion width="300" height="250" id="companion-rect">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/300x250/34A853/FFFFFF?text=COMPANION+300x250]]>
-                            </StaticResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/companion-click]]>
-                            </CompanionClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_view]]></Tracking>
-                            </TrackingEvents>
-                        </Companion>
-
-                        <Companion width="728" height="90" id="companion-banner">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/728x90/4285F4/FFFFFF?text=COMPANION+BANNER]]>
-                            </StaticResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/banner-click]]>
-                            </CompanionClickThrough>
-                        </Companion>
-
-                        <Companion width="320" height="100" id="companion-html">
-                            <HTMLResource>
-                                <![CDATA[
-                                <div style="width:320px;height:100px;background:linear-gradient(45deg, #667eea 0%, #764ba2 100%);display:flex;align-items:center;justify-content:center;color:white;font-family:Arial,sans-serif;text-align:center;border-radius:8px;">
-                                    <div>
-                                        <h3 style="margin:0;font-size:16px;">HTML Companion</h3>
-                                        <p style="margin:5px 0 0 0;font-size:12px;">Interactive Content</p>
-                                    </div>
-                                </div>
-                                ]]>
-                            </HTMLResource>
-                        </Companion>
-                    </CompanionAds>
-                </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
 </VAST>

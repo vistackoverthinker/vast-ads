@@ -1,18 +1,17 @@
 <VAST version="4.2">
-  
-  <!-- 🔹 Pause Ad (non-linear image/HTML overlay) -->
+
+  <!-- 🔹 Pause Ad (image overlay on pause) -->
   <Ad id="pause-banner">
     <InLine>
       <Creatives>
         <Creative>
           <NonLinearAds>
             <NonLinear width="300" height="250" minSuggestedDuration="15">
-              <!-- 👇 Replace with your own image URL -->
               <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://vistackoverthinker.github.io/vast-ads/picsum.jpg]]>
+                <![CDATA[https://picsum.photos/id/237/300/250]]>
               </StaticResource>
               <NonLinearClickThrough>
-                <![CDATA[https://example.com]]>
+                <![CDATA[https://openai.com]]>
               </NonLinearClickThrough>
             </NonLinear>
           </NonLinearAds>
@@ -21,7 +20,7 @@
     </InLine>
   </Ad>
 
-  <!-- 🔹 Pause-Triggered Ad (linear video on pause) -->
+  <!-- 🔹 Pause-Triggered Ad (video plays when paused) -->
   <Ad id="pause-video">
     <InLine>
       <Creatives>
@@ -29,11 +28,9 @@
           <Linear>
             <Duration>00:00:10</Duration>
             <MediaFiles>
-              <!-- 👇 Replace with your own video URL -->
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-  <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
-</MediaFile>
-
+                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+              </MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
@@ -41,19 +38,18 @@
     </InLine>
   </Ad>
 
-  <!-- 🔹 Companion Ad (sidebar/overlay) -->
+  <!-- 🔹 Companion Ad (sidebar/overlay image) -->
   <Ad id="companion-test">
     <InLine>
       <Creatives>
         <Creative>
           <CompanionAds>
             <Companion width="300" height="250">
-              <!-- 👇 Replace with your own image URL -->
               <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://vistackoverthinker.github.io/vast-ads/picsum.jpg]]>
+                <![CDATA[https://picsum.photos/id/1025/300/250]]>
               </StaticResource>
               <CompanionClickThrough>
-                <![CDATA[https://example.com]]>
+                <![CDATA[https://wikipedia.org]]>
               </CompanionClickThrough>
             </Companion>
           </CompanionAds>
@@ -63,5 +59,3 @@
   </Ad>
 
 </VAST>
-
-

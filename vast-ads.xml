@@ -1,64 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VAST version="4.2">
-  <Ad id="ad_with_linear_and_companion">
+  <Ad id="simple_test_ad">
     <InLine>
       <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Sample VAST Ad with Companion</AdTitle>
+      <AdTitle>Simple Test Ad</AdTitle>
       <Impression><![CDATA[https://example.com/impression]]></Impression>
 
       <Creatives>
-        <!-- Linear Pre-Roll Video -->
-        <Creative id="linear_creative" sequence="1">
+        <!-- Linear Video -->
+        <Creative id="linear" sequence="1">
           <Linear>
-            <Duration>00:00:15</Duration>
+            <Duration>00:00:10</Duration>
             <MediaFiles>
-              <MediaFile id="1" delivery="progressive" type="video/mp4" bitrate="600" width="640" height="360">
-                <![CDATA[https://storage.googleapis.com/interactive-media-ads/media/android.mp4]]>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
               </MediaFile>
             </MediaFiles>
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://example.com/clickthrough]]></ClickThrough>
-            </VideoClicks>
           </Linear>
         </Creative>
 
-        <!-- Companion Banner Ads -->
-        <Creative id="companion_creative" sequence="1">
+        <!-- Simple Companion -->
+        <Creative id="companion">
           <CompanionAds>
-            <!-- Static Image Companion -->
-            <Companion id="companion_300x250" width="300" height="250">
+            <Companion width="300" height="250">
               <StaticResource creativeType="image/png">
-                <![CDATA[https://via.placeholder.com/300x250.png?text=Companion+300x250]]>
+                <![CDATA[https://placehold.co/300x250/0066cc/ffffff.png?text=Test+Companion]]>
               </StaticResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/companion_300x250_view]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/companion_300x250_click]]></CompanionClickThrough>
-              <AltText>Companion Ad 300x250</AltText>
-            </Companion>
-
-            <!-- HTML Resource Companion -->
-            <Companion id="companion_728x90" width="728" height="90">
-              <HTMLResource><![CDATA[
-                <a href="https://example.com/companion_728x90_click" target="_blank">
-                  <img src="https://via.placeholder.com/728x90.png?text=Companion+728x90" width="728" height="90" alt="Companion Ad 728x90">
-                </a>
-              ]]></HTMLResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/companion_728x90_view]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/companion_728x90_click]]></CompanionClickThrough>
-              <AltText>Companion Ad 728x90</AltText>
-            </Companion>
-
-            <!-- IFrame Resource Companion -->
-            <Companion id="companion_iframe" width="300" height="60">
-              <IFrameResource><![CDATA[https://www.w3schools.com]]></IFrameResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://example.com/companion_iframe_view]]></Tracking>
-              </TrackingEvents>
-              <CompanionClickThrough><![CDATA[https://example.com/companion_iframe_click]]></CompanionClickThrough>
-              <AltText>Companion Ad Iframe</AltText>
+              <CompanionClickThrough>
+                <![CDATA[https://example.com/click]]>
+              </CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>

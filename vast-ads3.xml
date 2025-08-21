@@ -1,153 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <VAST version="3.0">
-    <Ad id="preroll-ad">
+    <Ad id="comprehensive-ad">
         <InLine>
             <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Pre-Roll Video Ad</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=preroll_impression]]></Impression>
+            <AdTitle>Comprehensive Ad Test</AdTitle>
+            <Impression><![CDATA[https://httpbin.org/get?event=comprehensive_impression]]></Impression>
             <Creatives>
+                <!-- Pre-Roll Video -->
                 <Creative id="preroll-video" sequence="1">
                     <Linear>
                         <Duration>00:00:15</Duration>
                         <TrackingEvents>
                             <Tracking event="start"><![CDATA[https://httpbin.org/get?event=preroll_start]]></Tracking>
-                            <Tracking event="firstQuartile"><![CDATA[https://httpbin.org/get?event=preroll_25]]></Tracking>
-                            <Tracking event="midpoint"><![CDATA[https://httpbin.org/get?event=preroll_50]]></Tracking>
-                            <Tracking event="thirdQuartile"><![CDATA[https://httpbin.org/get?event=preroll_75]]></Tracking>
                             <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=preroll_complete]]></Tracking>
                             <Tracking event="skip"><![CDATA[https://httpbin.org/get?event=preroll_skip]]></Tracking>
                         </TrackingEvents>
-                        <VideoClicks>
-                            <ClickThrough><![CDATA[https://example.com/preroll-click]]></ClickThrough>
-                        </VideoClicks>
                         <MediaFiles>
                             <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
                                 <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
                             </MediaFile>
                         </MediaFiles>
-                        <AdParameters><![CDATA[skippable=true]]></AdParameters>
                     </Linear>
                 </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
 
-    <!-- Wait Ad: Video ad that plays when main video is paused -->
-    <Ad id="pause-video-wait-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Wait Ad - Plays on Pause</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=wait_ad_impression]]></Impression>
-            <Creatives>
-                <Creative id="wait-video" sequence="1" adId="pause-video-001">
+                <!-- Wait Ad: Video that plays when paused -->
+                <Creative id="wait-video" adId="pause-video-001">
                     <Linear>
                         <Duration>00:00:10</Duration>
                         <TrackingEvents>
                             <Tracking event="start"><![CDATA[https://httpbin.org/get?event=wait_ad_start]]></Tracking>
                             <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=wait_ad_complete]]></Tracking>
-                            <Tracking event="skip"><![CDATA[https://httpbin.org/get?event=wait_ad_skip]]></Tracking>
                         </TrackingEvents>
                         <MediaFiles>
                             <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
                                 <![CDATA[https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4]]>
                             </MediaFile>
                         </MediaFiles>
-                        <AdParameters><![CDATA[trigger=pause,type=wait]]></AdParameters>
                     </Linear>
                 </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
 
-    <!-- Pause Ad Overlay: Static overlay that appears when video is paused -->
-    <Ad id="pause-overlay-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Pause Overlay Ad</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=pause_overlay_impression]]></Impression>
-            <Creatives>
-                <Creative id="pause-nonlinear" adId="pause-overlay-001">
+                <!-- Mid-Roll Video -->
+                <Creative id="midroll-video" sequence="2">
+                    <Linear>
+                        <Duration>00:00:20</Duration>
+                        <TrackingEvents>
+                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=midroll_start]]></Tracking>
+                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=midroll_complete]]></Tracking>
+                        </TrackingEvents>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+
+                <!-- Post-Roll Video -->
+                <Creative id="postroll-video" sequence="99">
+                    <Linear>
+                        <Duration>00:00:12</Duration>
+                        <TrackingEvents>
+                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=postroll_start]]></Tracking>
+                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=postroll_complete]]></Tracking>
+                        </TrackingEvents>
+                        <MediaFiles>
+                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
+                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
+                            </MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+
+                <!-- Pause Overlay -->
+                <Creative id="pause-overlay" adId="pause-overlay-001">
                     <NonLinearAds>
                         <NonLinear width="400" height="300" minSuggestedDuration="00:00:10">
                             <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=PAUSE+OVERLAY+AD+%0AClick+to+Learn+More]]>
+                                <![CDATA[https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=PAUSE+OVERLAY+AD]]>
                             </StaticResource>
                             <NonLinearClickThrough>
                                 <![CDATA[https://example.com/pause-overlay-click]]>
                             </NonLinearClickThrough>
-                            <AdParameters><![CDATA[trigger=pause,type=overlay,position=center]]></AdParameters>
                             <TrackingEvents>
                                 <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=pause_overlay_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=pause_overlay_click]]></Tracking>
-                                <Tracking event="close"><![CDATA[https://httpbin.org/get?event=pause_overlay_close]]></Tracking>
                             </TrackingEvents>
                         </NonLinear>
                     </NonLinearAds>
                 </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
 
-    <!-- Companion Ads: Multiple companions with different sizes -->
-    <Ad id="companion-ads">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Companion Ads Collection</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=companion_impression]]></Impression>
-            <Creatives>
-                <!-- Companion Creative 1: Standard Banner -->
-                <Creative id="companion-banner">
-                    <CompanionAds>
-                        <Companion width="728" height="90" id="companion-banner-728x90">
+                <!-- Video Overlay -->
+                <Creative id="video-overlay">
+                    <NonLinearAds>
+                        <NonLinear width="300" height="60" minSuggestedDuration="00:00:15">
                             <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/728x90/4285F4/FFFFFF?text=COMPANION+BANNER+728x90]]>
+                                <![CDATA[https://via.placeholder.com/300x60/FBBC04/000000?text=VIDEO+OVERLAY]]>
                             </StaticResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/companion-banner-click]]>
-                            </CompanionClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_banner_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=companion_banner_click]]></Tracking>
-                            </TrackingEvents>
-                        </Companion>
-                        
-                        <!-- Medium Rectangle Companion -->
-                        <Companion width="300" height="250" id="companion-rect-300x250">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/300x250/34A853/FFFFFF?text=COMPANION+300x250+%0AMedium+Rectangle]]>
-                            </StaticResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/companion-rect-click]]>
-                            </CompanionClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_rect_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=companion_rect_click]]></Tracking>
-                            </TrackingEvents>
-                        </Companion>
-
-                        <!-- Skyscraper Companion -->
-                        <Companion width="160" height="600" id="companion-sky-160x600">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/160x600/EA4335/FFFFFF?text=COMPANION+160x600+SKYSCRAPER]]>
-                            </StaticResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/companion-sky-click]]>
-                            </CompanionClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_sky_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=companion_sky_click]]></Tracking>
-                            </TrackingEvents>
-                        </Companion>
-                    </CompanionAds>
+                            <NonLinearClickThrough>
+                                <![CDATA[https://example.com/overlay-click]]>
+                            </NonLinearClickThrough>
+                        </NonLinear>
+                    </NonLinearAds>
                 </Creative>
 
-                <!-- HTML Companion -->
-                <Creative id="companion-html">
+                <!-- Companion Ads -->
+                <Creative id="companions">
                     <CompanionAds>
-                        <Companion width="320" height="100" id="companion-html-320x100">
+                        <Companion width="300" height="250" id="companion-rect">
+                            <StaticResource creativeType="image/png">
+                                <![CDATA[https://via.placeholder.com/300x250/34A853/FFFFFF?text=COMPANION+300x250]]>
+                            </StaticResource>
+                            <CompanionClickThrough>
+                                <![CDATA[https://example.com/companion-click]]>
+                            </CompanionClickThrough>
+                            <TrackingEvents>
+                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_view]]></Tracking>
+                            </TrackingEvents>
+                        </Companion>
+
+                        <Companion width="728" height="90" id="companion-banner">
+                            <StaticResource creativeType="image/png">
+                                <![CDATA[https://via.placeholder.com/728x90/4285F4/FFFFFF?text=COMPANION+BANNER]]>
+                            </StaticResource>
+                            <CompanionClickThrough>
+                                <![CDATA[https://example.com/banner-click]]>
+                            </CompanionClickThrough>
+                        </Companion>
+
+                        <Companion width="320" height="100" id="companion-html">
                             <HTMLResource>
                                 <![CDATA[
-                                <div style="width:320px;height:100px;background:linear-gradient(45deg, #667eea 0%, #764ba2 100%);display:flex;align-items:center;justify-content:center;color:white;font-family:Arial,sans-serif;text-align:center;border-radius:8px;cursor:pointer;" onclick="window.open('https://example.com/html-companion-click', '_blank')">
+                                <div style="width:320px;height:100px;background:linear-gradient(45deg, #667eea 0%, #764ba2 100%);display:flex;align-items:center;justify-content:center;color:white;font-family:Arial,sans-serif;text-align:center;border-radius:8px;">
                                     <div>
                                         <h3 style="margin:0;font-size:16px;">HTML Companion</h3>
                                         <p style="margin:5px 0 0 0;font-size:12px;">Interactive Content</p>
@@ -155,98 +137,8 @@
                                 </div>
                                 ]]>
                             </HTMLResource>
-                            <CompanionClickThrough>
-                                <![CDATA[https://example.com/html-companion-click]]>
-                            </CompanionClickThrough>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=companion_html_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=companion_html_click]]></Tracking>
-                            </TrackingEvents>
                         </Companion>
                     </CompanionAds>
-                </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
-
-    <!-- Overlay Ad: Non-linear overlay that appears during video playback -->
-    <Ad id="overlay-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Video Overlay Ad</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=overlay_impression]]></Impression>
-            <Creatives>
-                <Creative id="overlay-nonlinear">
-                    <NonLinearAds>
-                        <NonLinear width="300" height="60" minSuggestedDuration="00:00:15">
-                            <StaticResource creativeType="image/png">
-                                <![CDATA[https://via.placeholder.com/300x60/FBBC04/000000?text=VIDEO+OVERLAY+AD]]>
-                            </StaticResource>
-                            <NonLinearClickThrough>
-                                <![CDATA[https://example.com/overlay-click]]>
-                            </NonLinearClickThrough>
-                            <AdParameters><![CDATA[position=bottom-right,type=overlay]]></AdParameters>
-                            <TrackingEvents>
-                                <Tracking event="creativeView"><![CDATA[https://httpbin.org/get?event=overlay_view]]></Tracking>
-                                <Tracking event="click"><![CDATA[https://httpbin.org/get?event=overlay_click]]></Tracking>
-                                <Tracking event="close"><![CDATA[https://httpbin.org/get?event=overlay_close]]></Tracking>
-                            </TrackingEvents>
-                        </NonLinear>
-                    </NonLinearAds>
-                </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
-
-    <!-- Mid-Roll Ad -->
-    <Ad id="midroll-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Mid-Roll Video Ad</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=midroll_impression]]></Impression>
-            <Creatives>
-                <Creative id="midroll-video" sequence="2">
-                    <Linear>
-                        <Duration>00:00:20</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=midroll_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=midroll_complete]]></Tracking>
-                            <Tracking event="skip"><![CDATA[https://httpbin.org/get?event=midroll_skip]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                        <AdParameters><![CDATA[placement=midroll]]></AdParameters>
-                    </Linear>
-                </Creative>
-            </Creatives>
-        </InLine>
-    </Ad>
-
-    <!-- Post-Roll Ad -->
-    <Ad id="postroll-ad">
-        <InLine>
-            <AdSystem version="1.0">Test System</AdSystem>
-            <AdTitle>Post-Roll Video Ad</AdTitle>
-            <Impression><![CDATA[https://httpbin.org/get?event=postroll_impression]]></Impression>
-            <Creatives>
-                <Creative id="postroll-video" sequence="99">
-                    <Linear>
-                        <Duration>00:00:12</Duration>
-                        <TrackingEvents>
-                            <Tracking event="start"><![CDATA[https://httpbin.org/get?event=postroll_start]]></Tracking>
-                            <Tracking event="complete"><![CDATA[https://httpbin.org/get?event=postroll_complete]]></Tracking>
-                            <Tracking event="skip"><![CDATA[https://httpbin.org/get?event=postroll_skip]]></Tracking>
-                        </TrackingEvents>
-                        <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
-                            </MediaFile>
-                        </MediaFiles>
-                        <AdParameters><![CDATA[placement=postroll]]></AdParameters>
-                    </Linear>
                 </Creative>
             </Creatives>
         </InLine>

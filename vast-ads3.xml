@@ -31,8 +31,9 @@
             <MediaFiles>
               <!-- 👇 Replace with your own video URL -->
               <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://your-username.github.io/your-repo/videos/pause-triggered.mp4]]>
-              </MediaFile>
+  <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+</MediaFile>
+
             </MediaFiles>
           </Linear>
         </Creative>
@@ -62,3 +63,4 @@
   </Ad>
 
 </VAST>
+

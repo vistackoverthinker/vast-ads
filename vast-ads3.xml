@@ -9,7 +9,7 @@
             <NonLinear width="300" height="250" minSuggestedDuration="15">
               <!-- 👇 Replace with your own image URL -->
               <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://vistackoverthinker.github.io/vast-ads/wallpaperflare.com_wallpaper%20(2).jpg]]>
+                <![CDATA[https://vistackoverthinker.github.io/vast-ads/picsum.jpg]]>
               </StaticResource>
               <NonLinearClickThrough>
                 <![CDATA[https://example.com]]>
@@ -50,7 +50,7 @@
             <Companion width="300" height="250">
               <!-- 👇 Replace with your own image URL -->
               <StaticResource creativeType="image/jpeg">
-                <![CDATA[https://vistackoverthinker.github.io/vast-ads/wallpaperflare.com_wallpaper%20(2).jpg]]>
+                <![CDATA[https://vistackoverthinker.github.io/vast-ads/picsum.jpg]]>
               </StaticResource>
               <CompanionClickThrough>
                 <![CDATA[https://example.com]]>
@@ -63,4 +63,5 @@
   </Ad>
 
 </VAST>
+
 

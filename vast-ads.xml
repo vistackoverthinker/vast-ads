@@ -1,34 +1,128 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <VAST version="4.2">
-  <Ad id="simple_test_ad">
+  <!-- Pre-Roll Ad -->
+  <Ad id="pre-ad" sequence="1">
     <InLine>
       <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Simple Test Ad</AdTitle>
-      <Impression><![CDATA[https://example.com/impression]]></Impression>
-
+      <AdTitle>Pre-Roll Test</AdTitle>
+      <Impression><![CDATA[https://example.com/track/impression-pre]]></Impression>
       <Creatives>
-        <!-- Linear Video -->
-        <Creative id="linear" sequence="1">
-          <Linear>
+        <Creative sequence="1">
+          <Linear skipoffset="00:00:05">
             <Duration>00:00:10</Duration>
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4]]>
-              </MediaFile>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360"><![CDATA[https://cdn.jsdelivr.net/gh/InteractiveAdvertisingBureau/VAST_Samples/videos/Skippable_ad.mp4]]></MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-        <!-- Simple Companion -->
-        <Creative id="companion">
+  <!-- Mid-Roll Ad -->
+  <Ad id="mid-ad" sequence="2">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Mid-Roll Test</AdTitle>
+      <Creatives>
+        <Creative sequence="2">
+          <Linear>
+            <Duration>00:00:08</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360"><![CDATA[https://cdn.jsdelivr.net/gh/InteractiveAdvertisingBureau/VAST_Samples/videos/NonSkippable_ad.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Post-Roll Ad -->
+  <Ad id="post-ad" sequence="99">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Post-Roll Test</AdTitle>
+      <Creatives>
+        <Creative sequence="99">
+          <Linear>
+            <Duration>00:00:06</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360"><![CDATA[https://cdn.jsdelivr.net/gh/InteractiveAdvertisingBureau/VAST_Samples/videos/Skippable_ad.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Pause Non-Linear Image Ad -->
+  <Ad id="pause-overlay">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Pause Image Ad</AdTitle>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear width="300" height="250">
+              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Pause+Ad]]></StaticResource>
+              <NonLinearClickThrough><![CDATA[https://www.example.com/pause-click]]></NonLinearClickThrough>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Pause Wait (Video) Ad -->
+  <Ad id="pause-video-wait" sequence="3">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Pause Video Wait Ad</AdTitle>
+      <Creatives>
+        <Creative>
+          <Linear>
+            <Duration>00:00:06</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360"><![CDATA[https://cdn.jsdelivr.net/gh/InteractiveAdvertisingBureau/VAST_Samples/videos/NonSkippable_ad.mp4]]></MediaFile>
+            </MediaFiles>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Overlay Ad -->
+  <Ad id="overlay-ad">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Overlay Test</AdTitle>
+      <Creatives>
+        <Creative>
+          <NonLinearAds>
+            <NonLinear width="300" height="100">
+              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x100.png?text=Overlay+Ad]]></StaticResource>
+              <NonLinearClickThrough><![CDATA[https://www.example.com/overlay-click]]></NonLinearClickThrough>
+            </NonLinear>
+          </NonLinearAds>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+
+  <!-- Companion Ads (multiple sizes) -->
+  <Ad id="companion-ad">
+    <InLine>
+      <AdSystem>TestAdServer</AdSystem>
+      <AdTitle>Companion Banner</AdTitle>
+      <Creatives>
+        <Creative>
           <CompanionAds>
             <Companion width="300" height="250">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://placehold.co/300x250/0066cc/ffffff.png?text=Test+Companion]]>
-              </StaticResource>
-              <CompanionClickThrough>
-                <![CDATA[https://example.com/click]]>
-              </CompanionClickThrough>
+              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Companion+300x250]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://www.example.com/companion1]]></CompanionClickThrough>
+            </Companion>
+            <Companion width="728" height="90">
+              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/728x90.png?text=Companion+728x90]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://www.example.com/companion2]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>

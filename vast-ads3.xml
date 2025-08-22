@@ -1,67 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.0">
-
-  <!-- Pre-roll Ad -->
-  <Ad id="preroll-test" sequence="1">
+<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- =========================
+       PRE-ROLL LINEAR (SKIPPABLE) + COMPANIONS
+       ========================= -->
+  <Ad id="preroll-001">
     <InLine>
-      <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Test Pre-roll</AdTitle>
-      <Impression><![CDATA[https://test.com/impression/preroll]]></Impression>
-      <Creatives>
-        <Creative id="preroll-linear">
-          <Linear skipoffset="00:00:05">
-            <Duration>00:00:15</Duration>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://test.com/tracking/start/preroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://test.com/tracking/complete/preroll]]></Tracking>
-            </TrackingEvents>
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://test.com/click/preroll]]></ClickThrough>
-            </VideoClicks>
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-          </Linear>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
+      <AdSystem version="1.0">Sample Ad Server</AdSystem>
+      <AdTitle>Pre-roll Skippable Linear</AdTitle>
 
-  <!-- Mid-roll Ad -->
-  <Ad id="midroll-test" sequence="2">
-    <InLine>
-      <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Test Mid-roll</AdTitle>
-      <Impression><![CDATA[https://test.com/impression/midroll]]></Impression>
+      <Impression><![CDATA[https://example.com/track/impression/preroll]]></Impression>
+
       <Creatives>
-        <Creative id="midroll-linear">
-          <Linear skipoffset="00:00:05">
-            <Duration>00:00:10</Duration>
+        <!-- Linear Creative -->
+        <Creative id="preroll-linear" sequence="1">
+          <Linear skipoffset="00:05">
+            <Duration>00:00:20</Duration>
+
+            <!-- SKIP BUTTON OVERLAY -->
+            <Icons>
+              <Icon program="skip-control" width="120" height="36" xPosition="right" yPosition="top" offset="00:05" duration="00:00:15">
+                <StaticResource creativeType="image/png">
+                  <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]>
+                </StaticResource>
+                <IconClicks>
+                  <IconClickThrough><![CDATA[javascript:playerSkipAd()]]></IconClickThrough>
+                </IconClicks>
+              </Icon>
+            </Icons>
+
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://test.com/tracking/start/midroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://test.com/tracking/complete/midroll]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/track/start/preroll]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/track/skip/preroll]]></Tracking>
             </TrackingEvents>
+
             <VideoClicks>
-              <ClickThrough><![CDATA[https://test.com/click/midroll]]></ClickThrough>
+              <ClickThrough><![CDATA[https://example.com/landing/preroll]]></ClickThrough>
             </VideoClicks>
+
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="854" height="480">
-                <![CDATA[http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
+              <MediaFile id="mp4" delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
 
-        <!-- Companion Ad -->
-        <Creative id="midroll-companion">
+        <!-- Companion Banners -->
+        <Creative id="preroll-companions">
           <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://picsum.photos/300/250?random=11]]>
-              </StaticResource>
-              <CompanionClickThrough><![CDATA[https://test.com/companionClick/midroll]]></CompanionClickThrough>
+            <Companion id="c-300x250" width="300" height="250">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://example.com/landing/preroll-companion]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>
@@ -69,70 +58,92 @@
     </InLine>
   </Ad>
 
-  <!-- Pause Ad -->
-  <Ad id="pause-test" sequence="3">
+  <!-- =========================
+       PAUSE-TRIGGERED LINEAR (SKIPPABLE) + COMPANIONS
+       ========================= -->
+  <Ad id="pause-linear-001">
     <InLine>
-      <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Pause Ad</AdTitle>
-      <Impression><![CDATA[https://test.com/impression/pause]]></Impression>
-      <Creatives>
-        <Creative id="pause-banner">
-          <NonLinearAds>
-            <NonLinear width="400" height="300">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://picsum.photos/400/300?random=22]]>
-              </StaticResource>
-              <NonLinearClickThrough><![CDATA[https://test.com/click/pause]]></NonLinearClickThrough>
-            </NonLinear>
-          </NonLinearAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
+      <AdSystem version="1.0">Sample Ad Server</AdSystem>
+      <AdTitle>Pause-Triggered Skippable Linear</AdTitle>
 
-  <!-- Post-roll Ad -->
-  <Ad id="postroll-test" sequence="4">
-    <InLine>
-      <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Test Post-roll</AdTitle>
-      <Impression><![CDATA[https://test.com/impression/postroll]]></Impression>
+      <Impression><![CDATA[https://example.com/track/impression/pause-linear]]></Impression>
+
       <Creatives>
-        <Creative id="postroll-linear">
-          <Linear skipoffset="00:00:05">
-            <Duration>00:00:12</Duration>
+        <!-- Linear Creative -->
+        <Creative id="pause-linear" sequence="1">
+          <Linear skipoffset="00:03">
+            <Duration>00:00:15</Duration>
+
+            <!-- SKIP BUTTON OVERLAY -->
+            <Icons>
+              <Icon program="skip-control" width="120" height="36" xPosition="right" yPosition="top" offset="00:03" duration="00:00:12">
+                <StaticResource creativeType="image/png">
+                  <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]>
+                </StaticResource>
+                <IconClicks>
+                  <IconClickThrough><![CDATA[javascript:playerSkipAd()]]></IconClickThrough>
+                </IconClicks>
+              </Icon>
+            </Icons>
+
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/track/start/pause-linear]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/track/skip/pause-linear]]></Tracking>
+            </TrackingEvents>
+
             <VideoClicks>
-              <ClickThrough><![CDATA[https://test.com/click/postroll]]></ClickThrough>
+              <ClickThrough><![CDATA[https://example.com/landing/pause-linear]]></ClickThrough>
             </VideoClicks>
+
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360">
-                <![CDATA[http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4]]>
+              <MediaFile id="mp4" delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
         </Creative>
+
+        <!-- Companion Banner -->
+        <Creative id="pause-companion">
+          <CompanionAds>
+            <Companion id="pause-300x250" width="300" height="250">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://example.com/landing/pause-companion]]></CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
+        </Creative>
       </Creatives>
+
+      <Extensions>
+        <Extension type="trigger"><![CDATA[pause]]></Extension>
+      </Extensions>
     </InLine>
   </Ad>
 
-  <!-- Overlay Ad -->
-  <Ad id="overlay-test" sequence="5">
+  <!-- =========================
+       OPTIONAL: PAUSE OVERLAY (NON-LINEAR)
+       ========================= -->
+  <Ad id="pause-overlay-001">
     <InLine>
-      <AdSystem>TestAdServer</AdSystem>
-      <AdTitle>Overlay Ad</AdTitle>
-      <Impression><![CDATA[https://test.com/impression/overlay]]></Impression>
+      <AdSystem version="1.0">Sample Ad Server</AdSystem>
+      <AdTitle>Pause Overlay (Non-Linear)</AdTitle>
+
+      <Impression><![CDATA[https://example.com/track/impression/pause-overlay]]></Impression>
+
       <Creatives>
-        <Creative id="overlay-banner">
+        <Creative id="pause-overlay">
           <NonLinearAds>
-            <NonLinear width="320" height="50">
-              <StaticResource creativeType="image/png">
-                <![CDATA[https://picsum.photos/320/50?random=33]]>
-              </StaticResource>
-              <NonLinearClickThrough><![CDATA[https://test.com/click/overlay]]></NonLinearClickThrough>
+            <NonLinear id="overlay-728x90" width="728" height="90" minSuggestedDuration="00:00:10">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]></StaticResource>
+              <NonLinearClickThrough><![CDATA[https://example.com/landing/pause-overlay]]></NonLinearClickThrough>
             </NonLinear>
           </NonLinearAds>
         </Creative>
       </Creatives>
+
+      <Extensions>
+        <Extension type="trigger"><![CDATA[pause]]></Extension>
+      </Extensions>
     </InLine>
   </Ad>
-
 </VAST>

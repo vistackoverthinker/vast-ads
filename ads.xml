@@ -79,35 +79,61 @@
   </Ad>
 
   <!-- Pre-Roll Ad -->
-  <Ad id="pre-roll">
+ <Ad id="preroll-001">
     <InLine>
-      <AdSystem>Plyr Test Server</AdSystem>
-      <AdTitle>Pre-Roll Ad</AdTitle>
-      <Impression><![CDATA[https://yourdomain.test/impression/preroll]]></Impression>
+      <AdSystem version="1.0">Sample Ad Server</AdSystem>
+      <AdTitle>Pre-roll Skippable Linear</AdTitle>
+
+      <Impression><![CDATA[https://example.com/track/impression/preroll]]></Impression>
+
       <Creatives>
-        <Creative id="preroll-creative">
-          <Linear>
-            <Duration>00:00:30</Duration>
+        <!-- Linear Creative -->
+        <Creative id="preroll-linear" sequence="1">
+          <Linear skipoffset="00:05">
+            <Duration>00:00:20</Duration>
+
+            <!-- SKIP BUTTON OVERLAY -->
+            <Icons>
+              <Icon program="skip-control" width="120" height="36" xPosition="right" yPosition="top" offset="00:05" duration="00:00:15">
+                <StaticResource creativeType="image/png">
+                  <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]>
+                </StaticResource>
+                <IconClicks>
+                  <IconClickThrough><![CDATA[javascript:playerSkipAd()]]></IconClickThrough>
+                </IconClicks>
+              </Icon>
+            </Icons>
+
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/track/start/preroll]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/track/skip/preroll]]></Tracking>
+            </TrackingEvents>
+
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://example.com/landing/preroll]]></ClickThrough>
+            </VideoClicks>
+
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720">
-                <![CDATA[https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.mp4]]>
+              <MediaFile id="mp4" delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
+                <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://yourdomain.test]]></ClickThrough>
-            </VideoClicks>
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://yourdomain.test/tracking/start/preroll]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://yourdomain.test/tracking/firstQuartile/preroll]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://yourdomain.test/tracking/midpoint/preroll]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://yourdomain.test/tracking/thirdQuartile/preroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://yourdomain.test/tracking/complete/preroll]]></Tracking>
-            </TrackingEvents>
           </Linear>
+        </Creative>
+
+        <!-- Companion Banners -->
+        <Creative id="preroll-companions">
+          <CompanionAds>
+            <Companion id="c-300x250" width="300" height="250">
+              <StaticResource creativeType="image/jpeg"><![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]></StaticResource>
+              <CompanionClickThrough><![CDATA[https://example.com/landing/preroll-companion]]></CompanionClickThrough>
+            </Companion>
+          </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
 
 </VAST>
+
 

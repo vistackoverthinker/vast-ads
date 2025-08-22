@@ -44,39 +44,36 @@
   </Ad>
 
   <!-- Standalone Companion Ad -->
-  <Ad id="companion-ad">
-    <InLine>
-      <AdSystem>Plyr Test Server</AdSystem>
-      <AdTitle>Companion Ad</AdTitle>
-      <Impression><![CDATA[https://yourdomain.test/impression/companion]]></Impression>
-      <Creatives>
-        <Creative id="companion-creative">
-          <CompanionAds>
-            <Companion width="300" height="250" id="companion1">
-              <StaticResource creativeType="image/jpeg"><![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://yourdomain.test/companion-landing]]></CompanionClickThrough>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion1]]></Tracking>
-              </TrackingEvents>
-              <AltText>Main Companion Ad</AltText>
-            </Companion>
-            <Companion width="728" height="90" id="companion2">
-              <HTMLResource><![CDATA[
-                <div style="background:#f0f0f0;border:1px solid #ccc;width:728px;height:90px;text-align:center;">
-                  <a href="https://yourdomain.test/companion-landing" target="_blank">
-                    <img src="https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" width="728" height="90" alt="Banner Ad">
-                  </a>
-                </div>
-              ]]></HTMLResource>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion2]]></Tracking>
-              </TrackingEvents>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
+ <Creatives>
+  <!-- Correct: specify Creative with CompanionAds -->
+  <Creative id="companion-creative">
+    <CompanionAds>
+      <Companion width="300" height="250" id="companion1">
+        <StaticResource creativeType="image/jpeg">
+          <![CDATA[https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg]]>
+        </StaticResource>
+        <CompanionClickThrough><![CDATA[https://yourdomain.test/companion-landing]]></CompanionClickThrough>
+        <TrackingEvents>
+          <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion1]]></Tracking>
+        </TrackingEvents>
+        <AltText>Main Companion Ad</AltText>
+      </Companion>
+
+      <Companion width="728" height="90" id="companion2">
+        <HTMLResource><![CDATA[
+          <div style="background:#f0f0f0;border:1px solid #ccc;width:728px;height:90px;text-align:center;">
+            <a href="https://yourdomain.test/companion-landing" target="_blank">
+              <img src="https://storage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg" width="728" height="90" alt="Banner Ad">
+            </a>
+          </div>
+        ]]></HTMLResource>
+        <TrackingEvents>
+          <Tracking event="creativeView"><![CDATA[https://yourdomain.test/tracking/companionView/companion2]]></Tracking>
+        </TrackingEvents>
+      </Companion>
+    </CompanionAds>
+  </Creative>
+</Creatives>
 
   <!-- Pre-Roll Ad -->
  <Ad id="preroll-001">
@@ -135,5 +132,6 @@
   </Ad>
 
 </VAST>
+
 
 

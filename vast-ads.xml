@@ -1,48 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<VAST version="4.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-  <!-- ===== PREROLL (skippable) ===== -->
+<VAST version="4.0">
+  <!-- Pre-roll Ad -->
   <Ad id="preroll-1" sequence="1">
     <InLine>
-      <AdSystem>LS VAST Test</AdSystem>
-      <AdTitle>Preroll BBB</AdTitle>
-      <Impression><![CDATA[https://httpstat.us/204?event=impression&ad=preroll]]></Impression>
-
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Pre-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/preroll]]></Impression>
       <Creatives>
-        <Creative>
-          <Linear skipoffset="00:00:05">
-            <Duration>00:00:15</Duration>
-
+        <Creative sequence="1" id="preroll-creative">
+          <Linear>
+            <Duration>00:00:10</Duration>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://httpstat.us/204?event=start&ad=preroll]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://httpstat.us/204?event=firstQuartile&ad=preroll]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://httpstat.us/204?event=midpoint&ad=preroll]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://httpstat.us/204?event=thirdQuartile&ad=preroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://httpstat.us/204?event=complete&ad=preroll]]></Tracking>
-              <Tracking event="skip"><![CDATA[https://httpstat.us/204?event=skip&ad=preroll]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/preroll]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/preroll]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/tracking/skip/preroll]]></Tracking>
             </TrackingEvents>
-
             <VideoClicks>
-              <ClickThrough><![CDATA[https://www.blender.org/]]></ClickThrough>
+              <ClickThrough><![CDATA[https://example.com/clickthrough/preroll]]></ClickThrough>
             </VideoClicks>
-
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" bitrate="500" scalable="true" maintainAspectRatio="true">
                 <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
-        </Creative>
-
-        <Creative>
           <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Preroll+Companion]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://www.blender.org/]]></CompanionClickThrough>
+            <Companion width="300" height="60">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://placehold.co/300x60/png?text=Pre-roll+Companion]]>
+              </StaticResource>
               <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://httpstat.us/204?event=companionCreativeView&ad=preroll]]></Tracking>
-                <Tracking event="click"><![CDATA[https://httpstat.us/204?event=companionClick&ad=preroll]]></Tracking>
+                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/companionView/preroll]]></Tracking>
               </TrackingEvents>
+              <CompanionClickThrough><![CDATA[https://example.com/companionClick/preroll]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>
@@ -50,48 +39,39 @@
     </InLine>
   </Ad>
 
-  <!-- ===== MIDROLL @ 00:10 (skippable) ===== -->
+  <!-- Mid-roll Ad -->
   <Ad id="midroll-1" sequence="2">
     <InLine>
-      <AdSystem>LS VAST Test</AdSystem>
-      <AdTitle>Midroll BBB</AdTitle>
-      <Impression><![CDATA[https://httpstat.us/204?event=impression&ad=midroll]]></Impression>
-
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Mid-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/midroll]]></Impression>
       <Creatives>
-        <Creative adId="mid-creative">
-          <Linear skipoffset="00:00:05">
+        <Creative sequence="1" id="midroll-creative">
+          <Linear>
             <Duration>00:00:15</Duration>
-
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://httpstat.us/204?event=start&ad=midroll]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://httpstat.us/204?event=firstQuartile&ad=midroll]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://httpstat.us/204?event=midpoint&ad=midroll]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://httpstat.us/204?event=thirdQuartile&ad=midroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://httpstat.us/204?event=complete&ad=midroll]]></Tracking>
-              <Tracking event="skip"><![CDATA[https://httpstat.us/204?event=skip&ad=midroll]]></Tracking>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/midroll]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/midroll]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/tracking/skip/midroll]]></Tracking>
             </TrackingEvents>
-
             <VideoClicks>
-              <ClickThrough><![CDATA[https://www.blender.org/]]></ClickThrough>
+              <ClickThrough><![CDATA[https://example.com/clickthrough/midroll]]></ClickThrough>
             </VideoClicks>
-
             <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" bitrate="800" scalable="true" maintainAspectRatio="true">
+                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4]]>
               </MediaFile>
             </MediaFiles>
           </Linear>
-        </Creative>
-
-        <Creative>
           <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Midroll+Companion]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://www.blender.org/]]></CompanionClickThrough>
+            <Companion width="300" height="60">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://placehold.co/300x60/png?text=Mid-roll+Companion]]>
+              </StaticResource>
               <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://httpstat.us/204?event=companionCreativeView&ad=midroll]]></Tracking>
-                <Tracking event="click"><![CDATA[https://httpstat.us/204?event=companionClick&ad=midroll]]></Tracking>
+                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/companionView/midroll]]></Tracking>
               </TrackingEvents>
+              <CompanionClickThrough><![CDATA[https://example.com/companionClick/midroll]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>
@@ -99,91 +79,67 @@
     </InLine>
   </Ad>
 
-  <!-- ===== POSTROLL (skippable) ===== -->
-  <Ad id="postroll-1" sequence="3">
+  <!-- Pause (Non-linear) Ad -->
+  <Ad id="pause-1" sequence="3">
     <InLine>
-      <AdSystem>LS VAST Test</AdSystem>
-      <AdTitle>Postroll BBB</AdTitle>
-      <Impression><![CDATA[https://httpstat.us/204?event=impression&ad=postroll]]></Impression>
-
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Pause Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/pause]]></Impression>
       <Creatives>
-        <Creative>
-          <Linear skipoffset="00:00:05">
-            <Duration>00:00:10</Duration>
-
-            <TrackingEvents>
-              <Tracking event="start"><![CDATA[https://httpstat.us/204?event=start&ad=postroll]]></Tracking>
-              <Tracking event="firstQuartile"><![CDATA[https://httpstat.us/204?event=firstQuartile&ad=postroll]]></Tracking>
-              <Tracking event="midpoint"><![CDATA[https://httpstat.us/204?event=midpoint&ad=postroll]]></Tracking>
-              <Tracking event="thirdQuartile"><![CDATA[https://httpstat.us/204?event=thirdQuartile&ad=postroll]]></Tracking>
-              <Tracking event="complete"><![CDATA[https://httpstat.us/204?event=complete&ad=postroll]]></Tracking>
-              <Tracking event="skip"><![CDATA[https://httpstat.us/204?event=skip&ad=postroll]]></Tracking>
-            </TrackingEvents>
-
-            <VideoClicks>
-              <ClickThrough><![CDATA[https://www.blender.org/]]></ClickThrough>
-            </VideoClicks>
-
-            <MediaFiles>
-              <MediaFile delivery="progressive" type="video/mp4" width="1280" height="720" bitrate="1200">
-                <![CDATA[https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4]]>
-              </MediaFile>
-            </MediaFiles>
-          </Linear>
-        </Creative>
-
-        <Creative>
-          <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Postroll+Companion]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://www.blender.org/]]></CompanionClickThrough>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://httpstat.us/204?event=companionCreativeView&ad=postroll]]></Tracking>
-                <Tracking event="click"><![CDATA[https://httpstat.us/204?event=companionClick&ad=postroll]]></Tracking>
-              </TrackingEvents>
-            </Companion>
-          </CompanionAds>
-        </Creative>
-      </Creatives>
-    </InLine>
-  </Ad>
-
-  <!-- ===== PAUSE NON-LINEAR (overlay banner) ===== -->
-  <!-- Your player looks for id containing 'pause' OR a custom timeOffset; keeping id to 'pause-ad' -->
-  <Ad id="pause-ad">
-    <InLine>
-      <AdSystem>LS VAST Test</AdSystem>
-      <AdTitle>Pause Overlay</AdTitle>
-      <Impression><![CDATA[https://httpstat.us/204?event=impression&ad=pause]]></Impression>
-
-      <Creatives>
-        <Creative>
+        <Creative sequence="1" id="pause-creative">
           <NonLinearAds>
-            <NonLinear width="728" height="90" minSuggestedDuration="00:00:10" scalable="true" maintainAspectRatio="true">
-              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/728x90.png?text=Pause+Ad]]></StaticResource>
-              <NonLinearClickThrough><![CDATA[https://www.blender.org/]]></NonLinearClickThrough>
-              <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://httpstat.us/204?event=creativeView&ad=pause]]></Tracking>
-                <Tracking event="click"><![CDATA[https://httpstat.us/204?event=click&ad=pause]]></Tracking>
-              </TrackingEvents>
+            <TrackingEvents>
+              <Tracking event="creativeView"><![CDATA[https://example.com/tracking/creativeView/pause]]></Tracking>
+            </TrackingEvents>
+            <NonLinear width="300" height="60" expandedWidth="300" expandedHeight="60" scalable="true" maintainAspectRatio="true">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://placehold.co/300x60/png?text=Pause+Ad]]>
+              </StaticResource>
+              <NonLinearClickThrough><![CDATA[https://example.com/clickthrough/pause]]></NonLinearClickThrough>
             </NonLinear>
           </NonLinearAds>
         </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
 
-        <Creative>
+  <!-- Post-roll Ad -->
+  <Ad id="postroll-1" sequence="4">
+    <InLine>
+      <AdSystem>ExampleAdServer</AdSystem>
+      <AdTitle>Post-roll Video Ad</AdTitle>
+      <Impression><![CDATA[https://example.com/impression/postroll]]></Impression>
+      <Creatives>
+        <Creative sequence="1" id="postroll-creative">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <TrackingEvents>
+              <Tracking event="start"><![CDATA[https://example.com/tracking/start/postroll]]></Tracking>
+              <Tracking event="complete"><![CDATA[https://example.com/tracking/complete/postroll]]></Tracking>
+              <Tracking event="skip"><![CDATA[https://example.com/tracking/skip/postroll]]></Tracking>
+            </TrackingEvents>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://example.com/clickthrough/postroll]]></ClickThrough>
+            </VideoClicks>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="640" height="360" bitrate="600" scalable="true" maintainAspectRatio="true">
+                <![CDATA[https://interactive-examples.mdn.mozilla.net/media/cc0-videos/bee.webm]]>
+              </MediaFile>
+            </MediaFiles>
+          </Linear>
           <CompanionAds>
-            <Companion width="300" height="250">
-              <StaticResource creativeType="image/png"><![CDATA[https://via.placeholder.com/300x250.png?text=Pause+Companion]]></StaticResource>
-              <CompanionClickThrough><![CDATA[https://www.blender.org/]]></CompanionClickThrough>
+            <Companion width="300" height="60">
+              <StaticResource creativeType="image/png">
+                <![CDATA[https://placehold.co/300x60/png?text=Post-roll+Companion]]>
+              </StaticResource>
               <TrackingEvents>
-                <Tracking event="creativeView"><![CDATA[https://httpstat.us/204?event=companionCreativeView&ad=pause]]></Tracking>
-                <Tracking event="click"><![CDATA[https://httpstat.us/204?event=companionClick&ad=pause]]></Tracking>
+                <Tracking event="creativeView"><![CDATA[https://example.com/tracking/companionView/postroll]]></Tracking>
               </TrackingEvents>
+              <CompanionClickThrough><![CDATA[https://example.com/companionClick/postroll]]></CompanionClickThrough>
             </Companion>
           </CompanionAds>
         </Creative>
       </Creatives>
     </InLine>
   </Ad>
-
 </VAST>
